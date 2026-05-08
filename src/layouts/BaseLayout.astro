@@ -1,6 +1,6 @@
 ---
 import '../styles/global.css';
-import { site } from '../site.config';
+import { site, contact, services } from '../site.config';
 
 interface Props {
   title?: string;
@@ -11,6 +11,59 @@ const {
   title = `${site.brand} — ${site.tagline}`,
   description = 'Private wine tours in Mendoza with a single trusted driver. Fixed USD pricing, fluent English, real local knowledge. Luján, Maipú, and Valle de Uco.',
 } = Astro.props;
+
+const siteUrl = `https://${site.domain}`;
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': ['LocalBusiness', 'TaxiService'],
+      '@id': `${siteUrl}#business`,
+      name: site.brand,
+      description,
+      url: siteUrl,
+      image: `${siteUrl}/img/taxi-andes.webp`,
+      telephone: contact.whatsappDisplay,
+      email: contact.email,
+      areaServed: [
+        { '@type': 'City', name: 'Mendoza' },
+        { '@type': 'AdministrativeArea', name: 'Luján de Cuyo' },
+        { '@type': 'AdministrativeArea', name: 'Maipú' },
+        { '@type': 'AdministrativeArea', name: 'Valle de Uco' },
+      ],
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'Mendoza',
+        addressRegion: 'Mendoza',
+        addressCountry: 'AR',
+      },
+      sameAs: [`https://instagram.com/${contact.instagram}`],
+      priceRange: '$$',
+      knowsLanguage: site.languages,
+      vehicle: {
+        '@type': 'Vehicle',
+        name: site.vehicle,
+        vehicleIdentificationNumber: site.vehiclePlate,
+        seatingCapacity: 4,
+      },
+    },
+    ...services.map((s) => ({
+      '@type': 'Service',
+      '@id': `${siteUrl}#service-${s.id}`,
+      name: `${s.title} — Mendoza private driver`,
+      description: s.blurb,
+      provider: { '@id': `${siteUrl}#business` },
+      areaServed: { '@type': 'City', name: 'Mendoza' },
+      offers: {
+        '@type': 'Offer',
+        price: s.price,
+        priceCurrency: 'USD',
+        availability: 'https://schema.org/InStock',
+      },
+    })),
+  ],
+};
 ---
 
 <!doctype html>
@@ -35,6 +88,8 @@ const {
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   </head>
   <body>
     <slot />

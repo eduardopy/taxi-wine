@@ -176,6 +176,36 @@ export const pillars = [
   },
 ];
 
+/**
+ * Honest comparison: when a licensed taxi is the right call, when it isn't.
+ * Sits between About and WhyChoose. Earns trust by NOT trashing the alternative.
+ */
+export const fitSelector = {
+  yes: {
+    label: 'A licensed Mendoza taxi',
+    sub: 'Plate OSB-IOJ — the registered city cab',
+    points: [
+      'You are 1–4 people, often a couple.',
+      'You want the same driver who replied to your WhatsApp to be the one at your hotel door.',
+      'You want a fixed price in dollars, not a meter, not a markup.',
+      'You like that the car is officially regulated — license, insurance, accountability.',
+      'You\'d rather pay in cash on the day than wire a deposit to a tour company.',
+    ],
+  },
+  no: {
+    label: 'A multi-driver tour van',
+    sub: 'When a taxi isn\'t the right tool',
+    points: [
+      'You are a group of 6+ — a sedan won\'t fit you.',
+      'You want a fixed group itinerary with strangers and a guide on a microphone.',
+      'You\'re booking through your hotel concierge and don\'t want to message a person directly.',
+      'You need a guaranteed fleet vehicle as a backup — taxis are individual.',
+    ],
+  },
+  closer:
+    'If you\'re unsure, message me anyway. I\'ll tell you honestly whether I\'m the right fit, or recommend the colleague who is.',
+} as const;
+
 export const process = [
   {
     n: '01',

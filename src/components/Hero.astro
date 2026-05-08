@@ -1,17 +1,23 @@
 ---
-import { site } from '../site.config';
+import LicensePlate from './LicensePlate.astro';
 ---
 
 <section class="relative overflow-hidden">
-  <div class="container-x pt-14 md:pt-20 pb-16 md:pb-24">
+  <!-- Taxi-roof accent: a thin black stripe with a yellow inner line, top of page -->
+  <div class="taxi-stripe" aria-hidden="true"></div>
+
+  <div class="container-x pt-12 md:pt-16 pb-16 md:pb-24">
     <div class="grid grid-cols-12 gap-6 md:gap-10 items-end">
       <!-- Headline -->
       <div class="col-span-12 lg:col-span-7 rise rise-1">
-        <p class="eyebrow mb-6">Mendoza · Private driver</p>
+        <div class="mb-6">
+          <LicensePlate />
+        </div>
+
         <h1 class="text-[2.6rem] sm:text-6xl md:text-7xl lg:text-[5rem] leading-[1.02]">
-          The wine country,<br />
+          A real Mendoza taxi.<br />
           <span class="italic-display" style="color: var(--color-wine);">
-            on your own terms.
+            Wine country, your way.
           </span>
         </h1>
 
@@ -19,9 +25,10 @@ import { site } from '../site.config';
           class="text-base md:text-lg max-w-xl mt-8"
           style="color: var(--color-mute); line-height: 1.55;"
         >
-          One driver, one licensed Mendoza taxi, fixed prices in dollars. I plan the day around what
-          <em class="italic-display" style="color: var(--color-ink);">you</em>
-          actually want to drink, eat, and see — then I drive you there.
+          Officially registered, regulated, and insured by the city of Mendoza.
+          One driver, fixed dollar prices, no luxury-tour markup — just
+          <em class="italic-display" style="color: var(--color-ink);">the day you actually wanted</em>,
+          driven by someone who lives here.
         </p>
       </div>
 

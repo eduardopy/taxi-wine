@@ -1,5 +1,6 @@
 ---
 import { site, contact } from '../site.config';
+import LicensePlate from './LicensePlate.astro';
 const year = new Date().getFullYear();
 ---
 
@@ -18,11 +19,12 @@ const year = new Date().getFullYear();
           {site.brand}
         </p>
         <p
-          class="italic-display text-xl md:text-2xl max-w-md"
+          class="italic-display text-xl md:text-2xl max-w-md mb-6"
           style="color: var(--color-wine);"
         >
           {site.tagline}.
         </p>
+        <LicensePlate />
       </div>
 
       <!-- Links -->
