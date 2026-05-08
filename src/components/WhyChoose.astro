@@ -1,0 +1,28 @@
+---
+import { pillars } from '../site.config';
+---
+
+<section class="relative py-20 md:py-28">
+  <div class="container-x">
+    <div class="max-w-3xl mb-14 md:mb-20">
+      <p class="eyebrow mb-5">Why Taxi Wine</p>
+      <h2 class="text-4xl md:text-6xl">
+        What you get that <span class="italic-display" style="color: var(--color-wine);">a tour bus</span> can't give you.
+      </h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-10 gap-y-12">
+      {pillars.map((p, i) => (
+        <div class="relative">
+          <span class="section-num text-3xl block mb-5">
+            {String(i + 1).padStart(2, '0')}
+          </span>
+          <h3 class="text-2xl md:text-[1.6rem] mb-3 leading-tight">{p.title}</h3>
+          <p style="color: var(--color-mute);" class="text-[0.97rem] leading-relaxed">
+            {p.body}
+          </p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

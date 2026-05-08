@@ -1,0 +1,85 @@
+---
+import { site, contact } from '../site.config';
+const year = new Date().getFullYear();
+---
+
+<footer
+  class="relative border-t pt-14 md:pt-20 pb-10"
+  style="border-color: var(--color-line); background: var(--color-cream);"
+>
+  <div class="container-x">
+    <div class="grid grid-cols-12 gap-8 mb-14 md:mb-20">
+      <!-- Brand -->
+      <div class="col-span-12 md:col-span-6">
+        <p
+          class="text-3xl md:text-4xl mb-3"
+          style="font-family: var(--font-display);"
+        >
+          {site.brand}
+        </p>
+        <p
+          class="italic-display text-xl md:text-2xl max-w-md"
+          style="color: var(--color-wine);"
+        >
+          {site.tagline}.
+        </p>
+      </div>
+
+      <!-- Links -->
+      <div class="col-span-6 md:col-span-3">
+        <p class="eyebrow mb-4">Site</p>
+        <ul class="space-y-2 text-base">
+          <li><a href="#services" class="hover:opacity-60 transition-opacity">Services</a></li>
+          <li><a href="#about" class="hover:opacity-60 transition-opacity">About</a></li>
+          <li><a href="#process" class="hover:opacity-60 transition-opacity">How it works</a></li>
+          <li><a href="#faq" class="hover:opacity-60 transition-opacity">FAQ</a></li>
+        </ul>
+      </div>
+
+      <div class="col-span-6 md:col-span-3">
+        <p class="eyebrow mb-4">Contact</p>
+        <ul class="space-y-2 text-base">
+          <li>
+            <a
+              href={`https://wa.me/${contact.whatsapp}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="hover:opacity-60 transition-opacity"
+            >
+              WhatsApp
+            </a>
+          </li>
+          <li>
+            <a href={`mailto:${contact.email}`} class="hover:opacity-60 transition-opacity">
+              Email
+            </a>
+          </li>
+          {contact.instagram && (
+            <li>
+              <a
+                href={`https://instagram.com/${contact.instagram}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="hover:opacity-60 transition-opacity"
+              >
+                Instagram
+              </a>
+            </li>
+          )}
+        </ul>
+      </div>
+    </div>
+
+    <div
+      class="hairline mb-6"
+      style="background: var(--color-line);"
+    ></div>
+
+    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+      <p class="text-sm" style="color: var(--color-mute);">
+        © {year} {site.brand}. {site.baseLocation}.
+      </p>
+      <p class="eyebrow" style="color: var(--color-mute);">Made with care, in Mendoza</p>
+    </div>
+  </div>
+</footer>

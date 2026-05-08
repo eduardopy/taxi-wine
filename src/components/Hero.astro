@@ -1,0 +1,100 @@
+---
+import { site } from '../site.config';
+---
+
+<section class="relative overflow-hidden">
+  <div class="container-x pt-14 md:pt-20 pb-16 md:pb-24">
+    <div class="grid grid-cols-12 gap-6 md:gap-10 items-end">
+      <!-- Headline -->
+      <div class="col-span-12 lg:col-span-7 rise rise-1">
+        <p class="eyebrow mb-6">Mendoza · Private driver</p>
+        <h1 class="text-[2.6rem] sm:text-6xl md:text-7xl lg:text-[5rem] leading-[1.02]">
+          The wine country,<br />
+          <span class="italic-display" style="color: var(--color-wine);">
+            on your own terms.
+          </span>
+        </h1>
+
+        <p
+          class="text-base md:text-lg max-w-xl mt-8"
+          style="color: var(--color-mute); line-height: 1.55;"
+        >
+          One driver, one licensed Mendoza taxi, fixed prices in dollars. I plan the day around what
+          <em class="italic-display" style="color: var(--color-ink);">you</em>
+          actually want to drink, eat, and see — then I drive you there.
+        </p>
+      </div>
+
+      <!-- Photo collage -->
+      <div class="col-span-12 lg:col-span-5 rise rise-2">
+        <div class="relative aspect-square">
+          <!-- Big photo -->
+          <div
+            class="absolute inset-0 overflow-hidden"
+            style="background: var(--color-wine);"
+          >
+            <img
+              src="/img/scene-vineyard-andes.webp"
+              alt="Vineyard rows with the snow-capped Andes behind"
+              class="w-full h-full object-cover"
+              loading="eager"
+            />
+          </div>
+
+          <!-- Small photo, offset bottom-left like a polaroid -->
+          <div
+            class="absolute -bottom-6 -left-6 w-2/5 aspect-square overflow-hidden border-4 hidden sm:block"
+            style="border-color: var(--color-cream); box-shadow: 0 18px 40px -18px rgba(26, 22, 18, 0.4);"
+          >
+            <img
+              src="/img/taxi-andes.webp"
+              alt="The Taxi Wine Chevrolet Classic with the Andes behind"
+              class="w-full h-full object-cover"
+              loading="eager"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTAs -->
+    <div class="flex flex-wrap items-center gap-3 mt-14 md:mt-20 rise rise-3">
+      <a href="#services" class="btn btn-primary">
+        See services & prices
+        <span aria-hidden="true">→</span>
+      </a>
+      <a href="#contact" class="btn btn-outline">Plan my day</a>
+    </div>
+
+    <!-- Stat strip -->
+    <div
+      class="mt-16 md:mt-24 grid grid-cols-2 md:grid-cols-4 gap-y-8 gap-x-6 pt-8 border-t rise rise-4"
+      style="border-color: var(--color-line);"
+    >
+      <div>
+        <p class="eyebrow mb-2">Pricing</p>
+        <p class="text-2xl md:text-3xl" style="font-family: var(--font-display);">
+          Fixed USD
+        </p>
+      </div>
+      <div>
+        <p class="eyebrow mb-2">Capacity</p>
+        <p class="text-2xl md:text-3xl" style="font-family: var(--font-display);">
+          Up to 4
+        </p>
+      </div>
+      <div>
+        <p class="eyebrow mb-2">Languages</p>
+        <p class="text-2xl md:text-3xl" style="font-family: var(--font-display);">
+          EN · ES
+        </p>
+      </div>
+      <div>
+        <p class="eyebrow mb-2">Reply time</p>
+        <p class="text-2xl md:text-3xl" style="font-family: var(--font-display);">
+          Same day
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

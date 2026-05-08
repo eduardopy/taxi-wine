@@ -1,0 +1,51 @@
+---
+import { reviews } from '../site.config';
+---
+
+<section class="relative py-20 md:py-32">
+  <div class="container-x">
+    <div class="grid grid-cols-12 gap-6 mb-14 md:mb-20">
+      <div class="col-span-12 md:col-span-6">
+        <p class="eyebrow mb-5">Travelers say</p>
+        <h2 class="text-4xl md:text-6xl">
+          Reviews from real <span class="italic-display" style="color: var(--color-wine);">guests.</span>
+        </h2>
+      </div>
+      <div class="col-span-12 md:col-span-5 md:col-start-8 self-end">
+        <p style="color: var(--color-mute);" class="text-base">
+          Every review below is from TripAdvisor or Google.
+          <br />
+          <em class="italic-display" style="color: var(--color-ink);">
+            Replace these placeholders with your real reviews when you have them.
+          </em>
+        </p>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+      {reviews.map((r) => (
+        <figure class="card flex flex-col h-full">
+          <span
+            aria-hidden="true"
+            class="block mb-4 leading-none"
+            style="font-family: var(--font-display); font-size: 3rem; color: var(--color-wine); height: 1.5rem; overflow: hidden;"
+          >
+            “
+          </span>
+
+          <blockquote
+            class="flex-1 text-[1.05rem] leading-relaxed mb-6"
+            style="color: var(--color-ink);"
+          >
+            {r.quote}
+          </blockquote>
+
+          <figcaption class="border-t pt-4" style="border-color: var(--color-line);">
+            <p style="font-family: var(--font-display); font-size: 1.15rem;">{r.name}</p>
+            <p class="eyebrow mt-1.5">{r.origin} · {r.source}</p>
+          </figcaption>
+        </figure>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,112 @@
+---
+import { services, contact } from '../site.config';
+---
+
+<section id="services" class="relative py-20 md:py-32">
+  <div class="container-x">
+    <!-- Section heading -->
+    <div class="grid grid-cols-12 gap-6 mb-16 md:mb-20">
+      <div class="col-span-12 md:col-span-5">
+        <p class="eyebrow mb-5">What I offer</p>
+        <h2 class="text-4xl md:text-6xl">
+          Four ways to <br />
+          <span class="italic-display" style="color: var(--color-wine);">work together.</span>
+        </h2>
+      </div>
+      <div class="col-span-12 md:col-span-6 md:col-start-7 self-end">
+        <p class="text-base md:text-lg" style="color: var(--color-mute);">
+          Every price is for the whole vehicle, not per person — so a couple pays the same
+          as a group of four. Tasting fees and lunches are paid directly at each winery.
+        </p>
+      </div>
+    </div>
+
+    <!-- Service cards -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-px" style="background: var(--color-line);">
+      {services.map((s, i) => (
+        <article
+          class="card group relative overflow-hidden"
+          style="border: none; padding: 0;"
+        >
+          <!-- Image strip -->
+          <div class="aspect-[16/9] w-full overflow-hidden">
+            <img
+              src={s.image}
+              alt=""
+              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              loading="lazy"
+            />
+          </div>
+
+          <div class="p-6 md:p-8">
+            <!-- Top row: number + eyebrow + price -->
+            <div class="flex items-start justify-between mb-5">
+              <div class="flex items-baseline gap-3">
+                <span class="section-num text-2xl">
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+                <span class="eyebrow" style="color: var(--color-mute);">{s.eyebrow}</span>
+              </div>
+              <div class="text-right">
+                <span class="text-3xl md:text-4xl" style="font-family: var(--font-display);">
+                  ${s.price}
+                </span>
+                {s.priceSuffix && (
+                  <span style="color: var(--color-mute); font-size: 0.95rem;">
+                    {s.priceSuffix}
+                  </span>
+                )}
+              </div>
+            </div>
+
+            <h3 class="text-3xl md:text-4xl mb-3">{s.title}</h3>
+
+            <p class="mb-2 text-sm" style="color: var(--color-mute);">
+              {s.duration} · {s.seats}
+            </p>
+
+            <p class="mb-6" style="color: var(--color-ink);">{s.blurb}</p>
+
+            <!-- Includes / excludes -->
+            <details class="group/details border-t pt-4" style="border-color: var(--color-line);">
+              <summary class="cursor-pointer flex items-center justify-between list-none">
+                <span class="eyebrow">Details</span>
+                <span
+                  class="transition-transform group-open/details:rotate-45 text-xl"
+                  style="color: var(--color-mute);"
+                >+</span>
+              </summary>
+
+              <div class="mt-5 grid sm:grid-cols-2 gap-6 text-sm">
+                <div>
+                  <p class="eyebrow mb-3">Included</p>
+                  <ul class="space-y-1.5" style="color: var(--color-ink);">
+                    {s.includes.map((it) => <li>· {it}</li>)}
+                  </ul>
+                </div>
+                <div>
+                  <p class="eyebrow mb-3">Not included</p>
+                  <ul class="space-y-1.5" style="color: var(--color-mute);">
+                    {s.excludes.map((it) => <li>· {it}</li>)}
+                  </ul>
+                </div>
+              </div>
+
+              <a
+                href={`https://wa.me/${contact.whatsapp}?text=${encodeURIComponent(
+                  `Hi! I'm interested in: ${s.title}.`
+                )}`}
+                class="btn btn-primary mt-7 text-sm"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Book {s.title}
+                <span aria-hidden="true">→</span>
+              </a>
+            </details>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

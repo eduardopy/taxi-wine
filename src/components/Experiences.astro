@@ -1,0 +1,73 @@
+---
+import { experiences } from '../site.config';
+---
+
+<section id="experiences" class="relative py-20 md:py-32">
+  <div class="container-x">
+    <div class="grid grid-cols-12 gap-6 mb-14 md:mb-20">
+      <div class="col-span-12 md:col-span-7">
+        <p class="eyebrow mb-5">Beyond wine</p>
+        <h2 class="text-4xl md:text-6xl">
+          When the day calls for <span class="italic-display" style="color: var(--color-wine);">mountains, not Malbec.</span>
+        </h2>
+      </div>
+      <div class="col-span-12 md:col-span-4 md:col-start-9 self-end">
+        <p style="color: var(--color-mute);" class="text-base">
+          Many travelers do one wine day and one of these. The taxi goes everywhere the
+          city does — and most places it doesn't.
+        </p>
+      </div>
+    </div>
+
+    <!-- Asymmetric image grid -->
+    <div class="grid grid-cols-12 gap-4 md:gap-6">
+      {experiences.map((exp, i) => {
+        // Vary sizes for editorial rhythm
+        const spans = ['col-span-12 md:col-span-7', 'col-span-12 md:col-span-5', 'col-span-12 md:col-span-5', 'col-span-12 md:col-span-7'];
+        const aspects = ['aspect-[16/10]', 'aspect-[4/5]', 'aspect-[4/5]', 'aspect-[16/10]'];
+        return (
+          <a
+            href="#contact"
+            class={`${spans[i]} group block relative overflow-hidden`}
+          >
+            <div class={`${aspects[i]} w-full overflow-hidden`}>
+              <img
+                src={exp.image}
+                alt={exp.title}
+                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                loading="lazy"
+              />
+              <!-- Gradient for text legibility -->
+              <div
+                class="absolute inset-0"
+                style="background: linear-gradient(to top, rgba(26, 22, 18, 0.85) 0%, rgba(26, 22, 18, 0.1) 50%, transparent 100%);"
+              ></div>
+            </div>
+
+            <!-- Overlay text -->
+            <div class="absolute inset-0 flex flex-col justify-end p-6 md:p-8">
+              <p
+                class="eyebrow mb-2"
+                style="color: var(--color-cream-2); opacity: 0.75;"
+              >
+                {exp.duration}
+              </p>
+              <h3
+                class="text-2xl md:text-3xl mb-2 leading-tight"
+                style="color: var(--color-cream); font-family: var(--font-display);"
+              >
+                {exp.title}
+              </h3>
+              <p
+                class="text-sm md:text-base max-w-md"
+                style="color: var(--color-cream-2); opacity: 0.85;"
+              >
+                {exp.blurb}
+              </p>
+            </div>
+          </a>
+        );
+      })}
+    </div>
+  </div>
+</section>
