@@ -28,18 +28,19 @@ Open it and edit:
 - `site` — brand name, driver name, tagline, languages
 - `contact` — WhatsApp number, email, Instagram handle
 - `services` — pricing, descriptions, what's included/excluded
+- `routes` — Luján, Maipú, and Valle de Uco route guidance
 - `pillars` — the four "why choose us" points
 - `process` — the three-step "how it works"
-- `reviews` — replace placeholders with real TripAdvisor / Google reviews
+- `trustPoints` — trust cards used until real TripAdvisor / Google reviews are sourced
 - `faqs` — questions and answers
 
 After saving, the dev server reloads automatically.
 
 ### Copy you'll want to update by hand
 
-The only content NOT in `site.config.ts` is the longer narrative paragraphs in:
+The only content NOT in `site.config.ts` is the longer narrative paragraph in:
 
-- `src/components/About.astro` — your bio (look for `[TODO short bio: ...]`)
+- `src/components/About.astro` — your bio / origin story
 - `src/components/Hero.astro` — the headline tagline if you want to change it
 
 ### Photos
@@ -125,8 +126,8 @@ Before launching, replace the placeholders:
 - [ ] Real Instagram handle (or remove the line)
 - [ ] Real prices (currently match Malbec Transfer's ballpark — adjust for your market)
 - [ ] Driver portrait at `/public/driver.jpg`
-- [ ] Real TripAdvisor / Google reviews
-- [ ] Long bio paragraph in `About.astro`
+- [ ] Real TripAdvisor / Google reviews, then replace the current trust cards
+- [ ] Personalize the bio paragraph in `About.astro`
 - [ ] Your real domain in `astro.config.mjs` (the `site:` value, used for SEO)
 
 Once those are in, you're ready to deploy.
@@ -152,6 +153,7 @@ taxi-wine/
     │   ├── Header.astro
     │   ├── Hero.astro
     │   ├── Services.astro
+    │   ├── Routes.astro
     │   ├── About.astro
     │   ├── WhyChoose.astro
     │   ├── Process.astro

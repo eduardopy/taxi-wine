@@ -108,6 +108,58 @@ export const services = [
 ];
 
 /**
+ * Region guidance for travelers who know they want wineries,
+ * but not yet which route makes the most sense.
+ */
+export const routes = [
+  {
+    id: 'lujan-de-cuyo',
+    eyebrow: 'Closest classic',
+    title: 'Luján de Cuyo',
+    drive: '25-40 min from Mendoza City',
+    bestFor:
+      'First-time Mendoza visitors who want serious Malbec, historic wineries, and a relaxed lunch without a long highway day.',
+    image: '/img/place-lunch-table.webp',
+    rhythm: [
+      'Morning pickup at your hotel or apartment',
+      'Two winery visits with time between reservations',
+      'Long lunch in Chacras, Vistalba, Agrelo, or nearby',
+      'Optional wine shop stop before returning to the city',
+    ],
+  },
+  {
+    id: 'maipu',
+    eyebrow: 'Old vines',
+    title: 'Maipú',
+    drive: '25-45 min from Mendoza City',
+    bestFor:
+      'A warmer, more traditional wine day: older vineyards, olive oil stops, family-run cellars, and less time in the car.',
+    image: '/img/guests-trapiche.webp',
+    rhythm: [
+      'Easy city pickup with a later start if you prefer',
+      'Classic winery visit and tasting',
+      'Olive oil or small-producer stop if it fits the day',
+      'Lunch, then one final tasting or return',
+    ],
+  },
+  {
+    id: 'valle-de-uco',
+    eyebrow: 'High altitude',
+    title: 'Valle de Uco',
+    drive: 'About 1.5 hr each way',
+    bestFor:
+      'Travelers who want mountain views, modern winery architecture, high-altitude wines, and a full-day pace.',
+    image: '/img/scene-vineyard-winter.webp',
+    rhythm: [
+      'Early pickup so the drive stays calm',
+      'First tasting with Andes views',
+      'Winery lunch with enough time to enjoy it',
+      'Afternoon visit, wine shop stop, and return to Mendoza',
+    ],
+  },
+] as const;
+
+/**
  * Beyond-wine experiences. Photo grid in Experiences section.
  */
 export const experiences = [
@@ -224,27 +276,28 @@ export const process = [
   },
 ];
 
-export const reviews = [
+/**
+ * Trust cards used until the real TripAdvisor / Google profile links are known.
+ * Do not invent reviews. Swap this section for real reviews only after sourcing them.
+ */
+export const trustPoints = [
   {
-    quote:
-      'Picked us up on time, gave us a list of wineries we’d never have found, and made the whole day feel effortless. By far the best part of our trip to Argentina.',
-    name: 'Placeholder Name',
-    origin: 'Toronto, Canada',
-    source: 'TripAdvisor',
+    eyebrow: 'Registered taxi',
+    title: 'Plate OSB-IOJ',
+    body:
+      'The car is a licensed Mendoza city taxi: regulated, insured, and easy to identify when it arrives.',
   },
   {
-    quote:
-      'Knew exactly when to talk and when to let us enjoy the views. Spoke perfect English and helped us order lunch like locals. Already recommended him to two friends going next year.',
-    name: 'Placeholder Name',
-    origin: 'New York, USA',
-    source: 'TripAdvisor',
+    eyebrow: 'Private by default',
+    title: 'Only your group',
+    body:
+      'No mixed bus, no strangers, no fixed microphone tour. The route is built around your timing and taste.',
   },
   {
-    quote:
-      'I was nervous about hiring a private driver online and he made it stress-free from the first WhatsApp. Punctual, friendly, and the car was spotless.',
-    name: 'Placeholder Name',
-    origin: 'London, UK',
-    source: 'Google',
+    eyebrow: 'Clear planning',
+    title: 'Wineries before wheels',
+    body:
+      'The day is confirmed before pickup: region, reservations, lunch plan, price, and realistic drive times.',
   },
 ];
 

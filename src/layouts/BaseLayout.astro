@@ -1,6 +1,6 @@
 ---
 import '../styles/global.css';
-import { site, contact, services } from '../site.config';
+import { site, contact, routes, services } from '../site.config';
 
 interface Props {
   title?: string;
@@ -44,7 +44,7 @@ const jsonLd = {
       vehicle: {
         '@type': 'Vehicle',
         name: site.vehicle,
-        vehicleIdentificationNumber: site.vehiclePlate,
+        identifier: site.vehiclePlate,
         seatingCapacity: 4,
       },
     },
@@ -61,6 +61,15 @@ const jsonLd = {
         priceCurrency: 'USD',
         availability: 'https://schema.org/InStock',
       },
+    })),
+    ...routes.map((route) => ({
+      '@type': 'TouristTrip',
+      '@id': `${siteUrl}#route-${route.id}`,
+      name: `${route.title} wine route with private taxi`,
+      description: route.bestFor,
+      provider: { '@id': `${siteUrl}#business` },
+      touristType: 'Wine tourist',
+      itinerary: route.rhythm.join(' | '),
     })),
   ],
 };
@@ -79,7 +88,7 @@ const jsonLd = {
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content={site.domain} />
+    <meta property="og:url" content={siteUrl} />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />

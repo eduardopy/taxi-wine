@@ -63,8 +63,7 @@ import { contact } from '../site.config';
           action={`mailto:${contact.email}`}
           method="POST"
           enctype="text/plain"
-          class="card"
-          style="padding: 2rem md:3rem;"
+          class="card p-8 md:p-12"
         >
           <p class="eyebrow mb-6">Booking request</p>
 
@@ -109,10 +108,13 @@ import { contact } from '../site.config';
                 type="number"
                 name="guests"
                 min="1"
-                max="6"
+                max="4"
                 class="w-full px-4 py-3 bg-transparent border focus:outline-none focus:ring-1 transition"
                 style="border-color: var(--color-line); color: var(--color-ink);"
               />
+              <span class="block text-xs mt-1.5" style="color: var(--color-mute);">
+                The taxi seats up to 4 guests.
+              </span>
             </label>
           </div>
 

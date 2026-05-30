@@ -1,0 +1,77 @@
+---
+import { contact, routes } from '../site.config';
+---
+
+<section
+  id="routes"
+  class="relative py-20 md:py-32"
+  style="background: var(--color-cream-2);"
+>
+  <div class="container-x">
+    <div class="grid grid-cols-12 gap-6 mb-14 md:mb-20">
+      <div class="col-span-12 md:col-span-7">
+        <p class="eyebrow mb-5">Wine routes</p>
+        <h2 class="text-4xl md:text-6xl">
+          Mendoza is easier when
+          <span class="italic-display" style="color: var(--color-wine);">the day has a shape.</span>
+        </h2>
+      </div>
+      <div class="col-span-12 md:col-span-4 md:col-start-9 self-end">
+        <p style="color: var(--color-mute);" class="text-base">
+          Most travelers are choosing between three regions. I help you pick the
+          one that fits your timing, lunch plans, and appetite for driving.
+        </p>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-px" style="background: var(--color-line);">
+      {routes.map((route) => (
+        <article class="group flex flex-col" style="background: var(--color-cream);">
+          <div class="aspect-[16/10] overflow-hidden">
+            <img
+              src={route.image}
+              alt={`${route.title} wine route in Mendoza`}
+              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              loading="lazy"
+            />
+          </div>
+
+          <div class="p-7 md:p-8 flex flex-col flex-1">
+            <p class="eyebrow mb-4">{route.eyebrow}</p>
+            <h3 class="text-3xl md:text-4xl mb-2">{route.title}</h3>
+            <p class="text-sm mb-5" style="color: var(--color-mute);">{route.drive}</p>
+            <p class="mb-7 leading-relaxed" style="color: var(--color-ink);">
+              {route.bestFor}
+            </p>
+
+            <div class="mt-auto border-t pt-5" style="border-color: var(--color-line);">
+              <p class="eyebrow mb-4">Typical rhythm</p>
+              <ol class="space-y-3">
+                {route.rhythm.map((item, i) => (
+                  <li class="flex gap-3 text-sm leading-relaxed" style="color: var(--color-mute);">
+                    <span class="section-num shrink-0 text-lg">
+                      {String(i + 1).padStart(2, '0')}
+                    </span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ol>
+            </div>
+
+            <a
+              href={`https://wa.me/${contact.whatsapp}?text=${encodeURIComponent(
+                `Hi! I am interested in a ${route.title} wine day.`
+              )}`}
+              class="btn btn-outline mt-7 text-sm justify-center"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Ask about {route.title}
+              <span aria-hidden="true">→</span>
+            </a>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

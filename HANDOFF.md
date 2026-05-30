@@ -22,7 +22,7 @@
 
 - Astro 5 + Tailwind v4 single-page site, static build, designed for free Cloudflare Pages hosting.
 - Editorial wine-cellar aesthetic: cream background, deep wine-red accents, Fraunces serif display + Instrument Sans body, subtle grain texture, asymmetric layouts, decorative italic accents.
-- Sections: Hero → Services (4 cards: Luján/Maipú, Valle de Uco, hourly, airport) → About → Why-choose pillars → **Experiences** (Aconcagua, horseback, Cacheuta, mixed days) → **Gallery band** (customer photos) → Process → Reviews (placeholder) → FAQ → Contact (form + WhatsApp/email/IG) → Footer + sticky WhatsApp float.
+- Sections: Hero → Services (4 cards: Luján/Maipú, Valle de Uco, hourly, airport) → **Routes** (Luján, Maipú, Valle de Uco planning guidance) → About → Why-choose pillars → **Experiences** (Aconcagua, horseback, Cacheuta, mixed days) → **Gallery band** (customer photos) → Process → Trust cards → FAQ → Contact (form + WhatsApp/email/IG) → Footer + sticky WhatsApp float.
 - Real photos integrated from his Instagram (provided by the dev as a zip): the actual taxi, vineyard scenery, cellar tasting moments, Andes shots, customer photos at named wineries.
 - Content centralized in `src/site.config.ts` so non-technical edits are one-file.
 - Theme tokens in `src/styles/global.css` under `@theme`.
@@ -31,9 +31,9 @@
 ## 3. What's a prototype / what's broken / what's a placeholder
 
 **Genuinely placeholder, must be fixed before launch:**
-- Reviews are 3 generic placeholder quotes ("Placeholder Name, Toronto, Canada"). They need to be replaced with real TripAdvisor or Google reviews — placeholder testimonials hurt conversions more than no testimonials at all.
+- Reviews no longer use invented placeholder quotes. The section is currently trust cards based on checkable business facts. Replace with real TripAdvisor or Google reviews once those profile URLs exist.
 - WhatsApp number, email, and domain in `site.config.ts` are dummy values. The real WhatsApp must be in international format, no `+`, no spaces (e.g. `5492611234567`).
-- The driver bio in `About.astro` has a `[TODO short bio: ...]` block. It's a stub.
+- The driver bio in `About.astro` is now generic but presentable. It still needs Matías's real story before launch.
 
 **Working but worth questioning:**
 - Prices ($180 / $230 / $28 hr / $35 airport) are *educated guesses* — slightly below the multi-driver competitors to reflect the taxi-vs-tour-van angle. The client never confirmed his actual rates.
@@ -87,12 +87,13 @@ src/
     Header.astro
     Hero.astro            ← photo collage with vineyard + taxi inset
     Services.astro        ← 4 cards, each with image + collapsible details
-    About.astro           ← collage (cellar photo + taxi inset), bio with TODO
+    Routes.astro          ← region-choice cards inspired by competitor route pages
+    About.astro           ← collage (cellar photo + taxi inset), generic bio to personalize
     WhyChoose.astro       ← 4 pillars
     Experiences.astro     ← NEW — beyond-wine grid (4 items, asymmetric)
     Gallery.astro         ← NEW — customer-moments band
     Process.astro         ← dark slab, 3 steps
-    Reviews.astro         ← 3 cards, all placeholder
+    Reviews.astro         ← trust cards until real reviews are sourced
     FAQ.astro             ← accordion
     Contact.astro         ← form (mailto:) + WhatsApp/email/IG buttons
     Footer.astro
