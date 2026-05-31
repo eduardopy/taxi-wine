@@ -1,18 +1,31 @@
 ---
 import '../styles/global.css';
-import { site, contact, routes, services } from '../site.config';
+import {
+  contact,
+  getContent,
+  localeMeta,
+  locales,
+  site,
+  type Locale,
+} from '../site.config';
 
 interface Props {
+  locale?: Locale;
   title?: string;
   description?: string;
 }
 
 const {
-  title = `${site.brand} — ${site.tagline}`,
-  description = 'Private wine tours in Mendoza with a single trusted driver. Fixed USD pricing, fluent English, real local knowledge. Luján, Maipú, and Valle de Uco.',
+  locale = 'en',
+  title,
+  description,
 } = Astro.props;
 
+const t = getContent(locale);
+const pageTitle = title ?? t.meta.title;
+const pageDescription = description ?? t.meta.description;
 const siteUrl = `https://${site.domain}`;
+const currentUrl = `${siteUrl}${localeMeta[locale].path}`;
 
 const jsonLd = {
   '@context': 'https://schema.org',
@@ -21,7 +34,7 @@ const jsonLd = {
       '@type': ['LocalBusiness', 'TaxiService'],
       '@id': `${siteUrl}#business`,
       name: site.brand,
-      description,
+      description: pageDescription,
       url: siteUrl,
       image: `${siteUrl}/img/taxi-andes.webp`,
       telephone: contact.whatsappDisplay,
@@ -48,9 +61,9 @@ const jsonLd = {
         seatingCapacity: 4,
       },
     },
-    ...services.map((s) => ({
+    ...t.services.map((s) => ({
       '@type': 'Service',
-      '@id': `${siteUrl}#service-${s.id}`,
+      '@id': `${siteUrl}#service-${s.id}-${locale}`,
       name: `${s.title} — Mendoza private driver`,
       description: s.blurb,
       provider: { '@id': `${siteUrl}#business` },
@@ -62,9 +75,9 @@ const jsonLd = {
         availability: 'https://schema.org/InStock',
       },
     })),
-    ...routes.map((route) => ({
+    ...t.routes.map((route) => ({
       '@type': 'TouristTrip',
-      '@id': `${siteUrl}#route-${route.id}`,
+      '@id': `${siteUrl}#route-${route.id}-${locale}`,
       name: `${route.title} wine route with private taxi`,
       description: route.bestFor,
       provider: { '@id': `${siteUrl}#business` },
@@ -76,23 +89,28 @@ const jsonLd = {
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={localeMeta[locale].htmlLang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
 
-    <title>{title}</title>
-    <meta name="description" content={description} />
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+    <link rel="canonical" href={currentUrl} />
+    {locales.map((item) => (
+      <link rel="alternate" hreflang={localeMeta[item].htmlLang} href={`${siteUrl}${localeMeta[item].path}`} />
+    ))}
+    <link rel="alternate" hreflang="x-default" href={`${siteUrl}/`} />
 
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content={siteUrl} />
+    <meta property="og:url" content={currentUrl} />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={description} />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={pageDescription} />
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />

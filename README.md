@@ -25,23 +25,22 @@ npm run preview     # preview the production build
 
 Open it and edit:
 
-- `site` — brand name, driver name, tagline, languages
+- `site` — brand name, driver name, domain, languages
 - `contact` — WhatsApp number, email, Instagram handle
-- `services` — pricing, descriptions, what's included/excluded
-- `routes` — Luján, Maipú, and Valle de Uco route guidance
-- `pillars` — the four "why choose us" points
-- `process` — the three-step "how it works"
-- `trustPoints` — trust cards used until real TripAdvisor / Google reviews are sourced
-- `faqs` — questions and answers
+- `localeMeta` — URL paths and labels for English, Spanish, Portuguese
+- `content.en`, `content.es`, `content.pt` — all translated page copy, services, routes, FAQs, trust cards
 
 After saving, the dev server reloads automatically.
 
-### Copy you'll want to update by hand
+### Languages
 
-The only content NOT in `site.config.ts` is the longer narrative paragraph in:
+The site builds three static language routes:
 
-- `src/components/About.astro` — your bio / origin story
-- `src/components/Hero.astro` — the headline tagline if you want to change it
+- `/` — English
+- `/es/` — Spanish
+- `/pt/` — Portuguese
+
+Each route has localized title/description metadata, `hreflang` alternate links, and localized JSON-LD service/route descriptions.
 
 ### Photos
 
@@ -97,25 +96,6 @@ Same flow at <https://app.netlify.com> — auto-detects Astro.
 
 ---
 
-## Adding a Spanish version (later)
-
-This starter is English-first. When you want Spanish, the cleanest path is Astro's built-in i18n routing:
-
-1. In `astro.config.mjs`, add:
-   ```js
-   i18n: {
-     defaultLocale: 'en',
-     locales: ['en', 'es'],
-     routing: { prefixDefaultLocale: false },
-   }
-   ```
-2. Move `src/pages/index.astro` to `src/pages/es/index.astro` (Spanish copy).
-3. Add a small language toggle in `Header.astro`.
-
-Docs: <https://docs.astro.build/en/guides/internationalization/>
-
----
-
 ## What still needs your attention
 
 Before launching, replace the placeholders:
@@ -127,7 +107,7 @@ Before launching, replace the placeholders:
 - [ ] Real prices (currently match Malbec Transfer's ballpark — adjust for your market)
 - [ ] Driver portrait at `/public/driver.jpg`
 - [ ] Real TripAdvisor / Google reviews, then replace the current trust cards
-- [ ] Personalize the bio paragraph in `About.astro`
+- [ ] Personalize the bio paragraphs in all three `content.*.about` entries
 - [ ] Your real domain in `astro.config.mjs` (the `site:` value, used for SEO)
 
 Once those are in, you're ready to deploy.
@@ -151,6 +131,7 @@ taxi-wine/
     │   └── BaseLayout.astro
     ├── components/
     │   ├── Header.astro
+    │   ├── HomePage.astro
     │   ├── Hero.astro
     │   ├── Services.astro
     │   ├── Routes.astro
@@ -163,5 +144,7 @@ taxi-wine/
     │   ├── Footer.astro
     │   └── WhatsAppFloat.astro
     └── pages/
-        └── index.astro     # the homepage, composes all components
+        ├── index.astro     # English homepage
+        ├── es/index.astro  # Spanish homepage
+        └── pt/index.astro  # Portuguese homepage
 ```

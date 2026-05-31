@@ -1,27 +1,33 @@
 ---
-import { trustPoints } from '../site.config';
+import { getContent, type Locale } from '../site.config';
+
+interface Props {
+  locale?: Locale;
+}
+
+const { locale = 'en' } = Astro.props;
+const t = getContent(locale);
 ---
 
 <section id="trust" class="relative py-20 md:py-32">
   <div class="container-x">
     <div class="grid grid-cols-12 gap-6 mb-14 md:mb-20">
       <div class="col-span-12 md:col-span-6">
-        <p class="eyebrow mb-5">Trust first</p>
+        <p class="eyebrow mb-5">{t.trustSection.eyebrow}</p>
         <h2 class="text-4xl md:text-6xl">
-          Clear facts before <span class="italic-display" style="color: var(--color-wine);">you book.</span>
+          {t.trustSection.headingBefore}
+          <span class="italic-display" style="color: var(--color-wine);"> {t.trustSection.headingAccent}</span>
         </h2>
       </div>
       <div class="col-span-12 md:col-span-5 md:col-start-8 self-end">
         <p style="color: var(--color-mute);" class="text-base">
-          The best tour companies in Mendoza make logistics feel invisible.
-          Taxi Wine keeps the same promise, with one visible difference:
-          the licensed taxi is the service.
+          {t.trustSection.intro}
         </p>
       </div>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-px" style="background: var(--color-line);">
-      {trustPoints.map((point, i) => (
+      {t.trustPoints.map((point, i) => (
         <article class="p-7 md:p-9" style="background: var(--color-cream-2);">
           <div class="flex items-baseline gap-3 mb-7">
             <span class="section-num text-3xl">

@@ -1,5 +1,12 @@
 ---
-import { process } from '../site.config';
+import { getContent, type Locale } from '../site.config';
+
+interface Props {
+  locale?: Locale;
+}
+
+const { locale = 'en' } = Astro.props;
+const t = getContent(locale);
 ---
 
 <section
@@ -9,14 +16,18 @@ import { process } from '../site.config';
 >
   <div class="container-x">
     <div class="max-w-3xl mb-14 md:mb-20">
-      <p class="eyebrow mb-5" style="color: var(--color-cream-2); opacity: 0.7;">How it works</p>
+      <p class="eyebrow mb-5" style="color: var(--color-cream-2); opacity: 0.7;">
+        {t.processSection.eyebrow}
+      </p>
       <h2 class="text-4xl md:text-6xl" style="color: var(--color-cream);">
-        From <span class="italic-display" style="color: var(--color-terracotta);">first message</span> to last winery.
+        {t.processSection.headingBefore}
+        <span class="italic-display" style="color: var(--color-terracotta);"> {t.processSection.headingAccent}</span>
+        {t.processSection.headingAfter}
       </h2>
     </div>
 
     <ol class="grid grid-cols-1 md:grid-cols-3 gap-px" style="background: rgba(246, 239, 226, 0.15);">
-      {process.map((step) => (
+      {t.process.map((step) => (
         <li
           class="relative p-8 md:p-10"
           style="background: var(--color-ink);"

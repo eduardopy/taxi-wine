@@ -1,11 +1,14 @@
 ---
-import { gallery } from '../site.config';
+import { getContent, type Locale } from '../site.config';
+
+interface Props {
+  locale?: Locale;
+}
+
+const { locale = 'en' } = Astro.props;
+const t = getContent(locale);
 ---
 
-<!--
-  Edge-to-edge customer-moments band.
-  Sits between sections to give the page rhythm.
--->
 <section
   class="relative py-16 md:py-24 overflow-hidden"
   style="background: var(--color-cream-2);"
@@ -13,21 +16,21 @@ import { gallery } from '../site.config';
   <div class="container-x mb-10 md:mb-14">
     <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
       <div>
-        <p class="eyebrow mb-4">Recent days out</p>
+        <p class="eyebrow mb-4">{t.gallerySection.eyebrow}</p>
         <h2 class="text-3xl md:text-5xl max-w-2xl">
-          A few <span class="italic-display" style="color: var(--color-wine);">guests</span>, a few corners of Mendoza.
+          {t.gallerySection.headingBefore}
+          <span class="italic-display" style="color: var(--color-wine);"> {t.gallerySection.headingAccent}</span>{t.gallerySection.headingAfter}
         </h2>
       </div>
     </div>
   </div>
 
-  <!-- Marquee-style horizontal scroll on small, grid on larger -->
   <div class="md:container-x">
     <div
       class="flex gap-3 md:gap-4 px-6 md:px-0 md:grid md:grid-cols-6 overflow-x-auto md:overflow-visible snap-x snap-mandatory pb-4 md:pb-0"
       style="scrollbar-width: thin;"
     >
-      {gallery.map((g, i) => (
+      {t.gallery.map((g, i) => (
         <figure
           class="snap-start shrink-0 w-[70%] sm:w-[40%] md:w-auto aspect-square overflow-hidden"
           style={`background: var(--color-cream); transform: rotate(${i % 2 === 0 ? '-0.5' : '0.5'}deg);`}

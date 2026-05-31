@@ -1,5 +1,12 @@
 ---
-import { faqs } from '../site.config';
+import { getContent, type Locale } from '../site.config';
+
+interface Props {
+  locale?: Locale;
+}
+
+const { locale = 'en' } = Astro.props;
+const t = getContent(locale);
 ---
 
 <section
@@ -9,21 +16,20 @@ import { faqs } from '../site.config';
 >
   <div class="container-x">
     <div class="grid grid-cols-12 gap-8 md:gap-12">
-      <!-- Title column -->
       <div class="col-span-12 md:col-span-5">
-        <p class="eyebrow mb-5">Questions</p>
+        <p class="eyebrow mb-5">{t.faqSection.eyebrow}</p>
         <h2 class="text-4xl md:text-6xl mb-6">
-          Asked & <span class="italic-display" style="color: var(--color-wine);">answered.</span>
+          {t.faqSection.headingBefore}
+          <span class="italic-display" style="color: var(--color-wine);"> {t.faqSection.headingAccent}</span>
         </h2>
         <p style="color: var(--color-mute);" class="max-w-sm">
-          Anything else? WhatsApp is the fastest way to reach me.
+          {t.faqSection.intro}
         </p>
       </div>
 
-      <!-- Q&A column -->
       <div class="col-span-12 md:col-span-7">
         <div class="border-t" style="border-color: var(--color-line);">
-          {faqs.map((item) => (
+          {t.faqs.map((item) => (
             <details class="group border-b py-5" style="border-color: var(--color-line);">
               <summary class="cursor-pointer flex items-center justify-between gap-4 list-none">
                 <span

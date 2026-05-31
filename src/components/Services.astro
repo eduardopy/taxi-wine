@@ -1,34 +1,37 @@
 ---
-import { services, contact } from '../site.config';
+import { contact, getContent, type Locale } from '../site.config';
+
+interface Props {
+  locale?: Locale;
+}
+
+const { locale = 'en' } = Astro.props;
+const t = getContent(locale);
 ---
 
 <section id="services" class="relative py-20 md:py-32">
   <div class="container-x">
-    <!-- Section heading -->
     <div class="grid grid-cols-12 gap-6 mb-16 md:mb-20">
       <div class="col-span-12 md:col-span-5">
-        <p class="eyebrow mb-5">What I offer</p>
+        <p class="eyebrow mb-5">{t.servicesSection.eyebrow}</p>
         <h2 class="text-4xl md:text-6xl">
-          Four ways to <br />
-          <span class="italic-display" style="color: var(--color-wine);">work together.</span>
+          {t.servicesSection.heading}<br />
+          <span class="italic-display" style="color: var(--color-wine);">{t.servicesSection.headingAccent}</span>
         </h2>
       </div>
       <div class="col-span-12 md:col-span-6 md:col-start-7 self-end">
         <p class="text-base md:text-lg" style="color: var(--color-mute);">
-          Every price is for the whole vehicle, not per person — so a couple pays the same
-          as a group of four. Tasting fees and lunches are paid directly at each winery.
+          {t.servicesSection.intro}
         </p>
       </div>
     </div>
 
-    <!-- Service cards -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-px" style="background: var(--color-line);">
-      {services.map((s, i) => (
+      {t.services.map((s, i) => (
         <article
           class="card group relative overflow-hidden"
           style="border: none; padding: 0;"
         >
-          <!-- Image strip -->
           <div class="aspect-[16/9] w-full overflow-hidden">
             <img
               src={s.image}
@@ -39,19 +42,18 @@ import { services, contact } from '../site.config';
           </div>
 
           <div class="p-6 md:p-8">
-            <!-- Top row: number + eyebrow + price -->
-            <div class="flex items-start justify-between mb-5">
+            <div class="flex items-start justify-between mb-5 gap-4">
               <div class="flex items-baseline gap-3">
                 <span class="section-num text-2xl">
                   {String(i + 1).padStart(2, '0')}
                 </span>
                 <span class="eyebrow" style="color: var(--color-mute);">{s.eyebrow}</span>
               </div>
-              <div class="text-right">
+              <div class="text-right shrink-0">
                 <span class="text-3xl md:text-4xl" style="font-family: var(--font-display);">
                   ${s.price}
                 </span>
-                {s.priceSuffix && (
+                {'priceSuffix' in s && s.priceSuffix && (
                   <span style="color: var(--color-mute); font-size: 0.95rem;">
                     {s.priceSuffix}
                   </span>
@@ -67,10 +69,9 @@ import { services, contact } from '../site.config';
 
             <p class="mb-6" style="color: var(--color-ink);">{s.blurb}</p>
 
-            <!-- Includes / excludes -->
             <details class="group/details border-t pt-4" style="border-color: var(--color-line);">
               <summary class="cursor-pointer flex items-center justify-between list-none">
-                <span class="eyebrow">Details</span>
+                <span class="eyebrow">{t.servicesSection.details}</span>
                 <span
                   class="transition-transform group-open/details:rotate-45 text-xl"
                   style="color: var(--color-mute);"
@@ -79,13 +80,13 @@ import { services, contact } from '../site.config';
 
               <div class="mt-5 grid sm:grid-cols-2 gap-6 text-sm">
                 <div>
-                  <p class="eyebrow mb-3">Included</p>
+                  <p class="eyebrow mb-3">{t.servicesSection.included}</p>
                   <ul class="space-y-1.5" style="color: var(--color-ink);">
                     {s.includes.map((it) => <li>· {it}</li>)}
                   </ul>
                 </div>
                 <div>
-                  <p class="eyebrow mb-3">Not included</p>
+                  <p class="eyebrow mb-3">{t.servicesSection.notIncluded}</p>
                   <ul class="space-y-1.5" style="color: var(--color-mute);">
                     {s.excludes.map((it) => <li>· {it}</li>)}
                   </ul>
@@ -94,13 +95,13 @@ import { services, contact } from '../site.config';
 
               <a
                 href={`https://wa.me/${contact.whatsapp}?text=${encodeURIComponent(
-                  `Hi! I'm interested in: ${s.title}.`
+                  `${t.servicesSection.whatsappInterest} ${s.title}.`
                 )}`}
-                class="btn btn-primary mt-7 text-sm"
+                class="btn btn-primary mt-7 text-sm max-w-full whitespace-normal"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Book {s.title}
+                {t.servicesSection.book} {s.title}
                 <span aria-hidden="true">→</span>
               </a>
             </details>

@@ -2,14 +2,17 @@
 import { site } from '../site.config';
 
 interface Props {
-  /** Optional override; defaults to "Mendoza · Taxi" */
   prefix?: string;
+  label?: string;
 }
 
-const { prefix = 'Mendoza · Taxi' } = Astro.props;
+const {
+  prefix = 'Mendoza · Taxi',
+  label = 'Licensed Mendoza taxi',
+} = Astro.props;
 ---
 
-<span class="plate" aria-label={`Licensed Mendoza taxi, plate ${site.vehiclePlate}`}>
+<span class="plate" aria-label={`${label}, plate ${site.vehiclePlate}`}>
   <span>{prefix}</span>
   <span class="plate__dot" aria-hidden="true"></span>
   <span class="plate__num">{site.vehiclePlate}</span>

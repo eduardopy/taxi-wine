@@ -1,8 +1,14 @@
 ---
-import { fitSelector } from '../site.config';
+import { getContent, type Locale } from '../site.config';
 import LicensePlate from './LicensePlate.astro';
 
-const { yes, no, closer } = fitSelector;
+interface Props {
+  locale?: Locale;
+}
+
+const { locale = 'en' } = Astro.props;
+const t = getContent(locale);
+const { yes, no, closer } = t.fitSelector;
 ---
 
 <section
@@ -11,22 +17,21 @@ const { yes, no, closer } = fitSelector;
 >
   <div class="container-x">
     <div class="max-w-3xl mb-14 md:mb-16">
-      <p class="eyebrow mb-5">Honest fit</p>
+      <p class="eyebrow mb-5">{t.fitSection.eyebrow}</p>
       <h2 class="text-4xl md:text-6xl">
-        When this is the
-        <span class="italic-display" style="color: var(--color-wine);">right call</span>,
-        and when it isn't.
+        {t.fitSection.headingBefore}
+        <span class="italic-display" style="color: var(--color-wine);"> {t.fitSection.headingAccent}</span>,
+        {t.fitSection.headingAfter}
       </h2>
       <p class="mt-6 text-base md:text-lg max-w-2xl" style="color: var(--color-mute);">
-        I'm one driver with one taxi. Great for some trips, wrong for others — here's the difference, plainly.
+        {t.fitSection.intro}
       </p>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-px" style="background: var(--color-line);">
-      <!-- YES column -->
       <div class="p-8 md:p-10" style="background: var(--color-cream);">
         <div class="mb-5">
-          <LicensePlate />
+          <LicensePlate prefix={t.licensePlate.prefix} label={t.licensePlate.aria} />
         </div>
         <h3 class="text-2xl md:text-[1.7rem] mb-1 leading-tight">{yes.label}</h3>
         <p class="text-sm mb-7" style="color: var(--color-mute);">{yes.sub}</p>
@@ -44,14 +49,10 @@ const { yes, no, closer } = fitSelector;
         </ul>
       </div>
 
-      <!-- NO column -->
       <div class="p-8 md:p-10" style="background: var(--color-cream);">
         <div class="mb-5">
-          <span
-            class="eyebrow"
-            style="color: var(--color-mute); --tw-bg-opacity: 1;"
-          >
-            Not me — and that's fine
+          <span class="eyebrow" style="color: var(--color-mute);">
+            {t.fitSection.notMe}
           </span>
         </div>
         <h3

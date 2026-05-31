@@ -1,5 +1,12 @@
 ---
-import { contact, routes } from '../site.config';
+import { contact, getContent, type Locale } from '../site.config';
+
+interface Props {
+  locale?: Locale;
+}
+
+const { locale = 'en' } = Astro.props;
+const t = getContent(locale);
 ---
 
 <section
@@ -10,27 +17,26 @@ import { contact, routes } from '../site.config';
   <div class="container-x">
     <div class="grid grid-cols-12 gap-6 mb-14 md:mb-20">
       <div class="col-span-12 md:col-span-7">
-        <p class="eyebrow mb-5">Wine routes</p>
+        <p class="eyebrow mb-5">{t.routesSection.eyebrow}</p>
         <h2 class="text-4xl md:text-6xl">
-          Mendoza is easier when
-          <span class="italic-display" style="color: var(--color-wine);">the day has a shape.</span>
+          {t.routesSection.heading}
+          <span class="italic-display" style="color: var(--color-wine);"> {t.routesSection.headingAccent}</span>
         </h2>
       </div>
       <div class="col-span-12 md:col-span-4 md:col-start-9 self-end">
         <p style="color: var(--color-mute);" class="text-base">
-          Most travelers are choosing between three regions. I help you pick the
-          one that fits your timing, lunch plans, and appetite for driving.
+          {t.routesSection.intro}
         </p>
       </div>
     </div>
 
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-px" style="background: var(--color-line);">
-      {routes.map((route) => (
+      {t.routes.map((route) => (
         <article class="group flex flex-col" style="background: var(--color-cream);">
           <div class="aspect-[16/10] overflow-hidden">
             <img
               src={route.image}
-              alt={`${route.title} wine route in Mendoza`}
+              alt={`${route.title} ${t.routesSection.imageAltSuffix}`}
               class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               loading="lazy"
             />
@@ -45,7 +51,7 @@ import { contact, routes } from '../site.config';
             </p>
 
             <div class="mt-auto border-t pt-5" style="border-color: var(--color-line);">
-              <p class="eyebrow mb-4">Typical rhythm</p>
+              <p class="eyebrow mb-4">{t.routesSection.rhythmLabel}</p>
               <ol class="space-y-3">
                 {route.rhythm.map((item, i) => (
                   <li class="flex gap-3 text-sm leading-relaxed" style="color: var(--color-mute);">
@@ -60,13 +66,13 @@ import { contact, routes } from '../site.config';
 
             <a
               href={`https://wa.me/${contact.whatsapp}?text=${encodeURIComponent(
-                `Hi! I am interested in a ${route.title} wine day.`
+                `${t.routesSection.whatsappInterest} ${route.title}.`
               )}`}
-              class="btn btn-outline mt-7 text-sm justify-center"
+              class="btn btn-outline mt-7 text-sm justify-center max-w-full whitespace-normal"
               target="_blank"
               rel="noopener noreferrer"
             >
-              Ask about {route.title}
+              {t.routesSection.ask} {route.title}
               <span aria-hidden="true">→</span>
             </a>
           </div>
