@@ -178,22 +178,22 @@
   }
 
   /* License-plate badge — the trust signal.
-     Looks plate-ish (yellow + black, condensed mono) without
-     literally faking an Argentine patente. */
+     Neutral ink badge (not a yellow taxi plate) — he drives an
+     authorized tourism car, not a city cab. */
   .plate {
     display: inline-flex;
     align-items: center;
     gap: 0.55rem;
     padding: 0.45rem 0.85rem 0.4rem;
-    background: var(--color-taxi-yellow);
-    color: var(--color-taxi-black);
+    background: var(--color-ink);
+    color: var(--color-cream);
     font-family: 'JetBrains Mono', 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
     font-weight: 600;
     font-size: 0.78rem;
     letter-spacing: 0.14em;
     text-transform: uppercase;
     border-radius: 3px;
-    box-shadow: inset 0 0 0 2px var(--color-taxi-black);
+    box-shadow: inset 0 0 0 1px var(--color-cream);
     line-height: 1;
     white-space: nowrap;
   }
@@ -209,17 +209,11 @@
     opacity: 0.55;
   }
 
-  /* Thin taxi-roof accent stripe — black with a yellow inner line */
+  /* Thin accent stripe at the top of the hero */
   .taxi-stripe {
-    height: 6px;
-    background: var(--color-taxi-black);
+    height: 4px;
+    background: var(--color-wine);
     position: relative;
-  }
-  .taxi-stripe::after {
-    content: '';
-    position: absolute;
-    inset: 2px 0;
-    background: var(--color-taxi-yellow);
   }
 
   /* Section number, e.g. "01 ·" */

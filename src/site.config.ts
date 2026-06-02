@@ -12,20 +12,20 @@ export const site = {
   baseLocation: 'Mendoza, Argentina',
   languages: ['English', 'Spanish', 'Portuguese'],
   yearsDriving: 8,                          // TODO confirm real number
-  vehicle: 'Chevrolet Classic — Mendoza city taxi',
-  vehiclePlate: 'OSB-IOJ',
+  vehicle: 'Chevrolet Onix — auto habilitado para turismo',
+  vehiclePlate: 'AH 207 UI',
 };
 
 export const contact = {
-  whatsapp: '5492611234567',                // TODO real number, no + or spaces
-  whatsappDisplay: '+54 9 261 123 4567',
+  whatsapp: '5492612517146',                // TODO real number, no + or spaces
+  whatsappDisplay: '+54 9 2612 51-7146',
   email: 'hello@taxiwine.com',              // TODO
   instagram: 'taxi.wine',
 };
 
-export const locales = ['en', 'es', 'pt'] as const;
+export const locales = ['pt', 'en', 'es'] as const;
 export type Locale = typeof locales[number];
-export const defaultLocale: Locale = 'en';
+export const defaultLocale: Locale = 'pt';
 
 export const localeMeta: Record<Locale, {
   label: string;
@@ -33,9 +33,9 @@ export const localeMeta: Record<Locale, {
   htmlLang: string;
   path: string;
 }> = {
-  en: { label: 'EN', name: 'English', htmlLang: 'en', path: '/' },
+  en: { label: 'EN', name: 'English', htmlLang: 'en', path: '/en/' },
   es: { label: 'ES', name: 'Español', htmlLang: 'es', path: '/es/' },
-  pt: { label: 'PT', name: 'Português', htmlLang: 'pt-BR', path: '/pt/' },
+  pt: { label: 'PT', name: 'Português', htmlLang: 'pt-BR', path: '/' },
 };
 
 export const content = {
@@ -55,14 +55,14 @@ export const content = {
       book: 'Book a ride',
     },
     licensePlate: {
-      prefix: 'Mendoza · Taxi',
-      aria: 'Licensed Mendoza taxi',
+      prefix: 'Mendoza · Turismo',
+      aria: 'Authorized Mendoza tourism driver',
     },
     hero: {
-      titleTop: 'A real Mendoza taxi.',
+      titleTop: 'Your private driver in Mendoza.',
       titleAccent: 'Wine country, your way.',
       descriptionBefore:
-        'Officially registered, regulated, and insured by the city of Mendoza. One driver, fixed dollar prices, no luxury-tour markup — just ',
+        'A comfortable car authorized for tourism in Mendoza — regulated and insured. One driver, fixed dollar prices, no luxury-tour markup — just ',
       descriptionEmphasis: 'the day you actually wanted',
       descriptionAfter: ', driven by someone who lives here.',
       ctaPrimary: 'See services & prices',
@@ -74,14 +74,14 @@ export const content = {
         { eyebrow: 'Reply time', value: 'Same day' },
       ],
       mainImageAlt: 'Vineyard rows with the snow-capped Andes behind',
-      taxiImageAlt: 'The Taxi Wine Chevrolet Classic with the Andes behind',
+      taxiImageAlt: 'The Taxi Wine Chevrolet Onix with the Andes behind',
     },
     servicesSection: {
       eyebrow: 'What I offer',
       heading: 'Four ways to',
       headingAccent: 'work together.',
       intro:
-        'Every price is for the whole vehicle, not per person — so a couple pays the same as a group of four. Tasting fees and lunches are paid directly at each winery.',
+        'Every price is for the whole vehicle, not per person — so a couple pays the same as a group of four. Tasting fees and lunches are paid directly at each winery. Traveling as a larger group? Just ask — I can arrange transport for more than four.',
       details: 'Details',
       included: 'Included',
       notIncluded: 'Not included',
@@ -94,20 +94,20 @@ export const content = {
         eyebrow: 'Full day',
         title: 'Luján & Maipú',
         duration: 'Up to 8 hours',
-        price: 180,
+        price: 150,
         seats: '1-4 guests',
         blurb:
           'Three classic wineries within a 40-minute drive of the city. Best for a first-time Mendoza day.',
         image: '/img/scene-vineyard-andes.webp',
         includes: [
-          'Licensed Mendoza taxi and driver for 8 hours',
+          'Authorized tourism car and driver for 8 hours',
           'Pickup and drop-off at your hotel',
           'Bottled water, A/C, fluent English',
           'Help booking wineries and lunch',
         ],
         excludes: [
           'Winery tasting fees and lunch',
-          'Each extra hour: USD 22',
+          'Each extra hour: USD 19',
         ],
       },
       {
@@ -115,20 +115,20 @@ export const content = {
         eyebrow: 'Full day',
         title: 'Valle de Uco',
         duration: 'Up to 10 hours',
-        price: 230,
+        price: 195,
         seats: '1-4 guests',
         blurb:
           'The high-altitude valley everyone comes for — about 1.5h each way, world-class wineries, panoramic views.',
         image: '/img/scene-vineyard-winter.webp',
         includes: [
-          'Licensed Mendoza taxi and driver for 10 hours',
+          'Authorized tourism car and driver for 10 hours',
           'Pickup and drop-off at your hotel',
           'Bottled water, A/C, fluent English',
           'Help booking wineries and lunch',
         ],
         excludes: [
           'Winery tasting fees and lunch',
-          'Each extra hour: USD 22',
+          'Each extra hour: USD 19',
         ],
       },
       {
@@ -136,14 +136,14 @@ export const content = {
         eyebrow: 'Flexible',
         title: 'By the hour',
         duration: 'Minimum 2 hours',
-        price: 28,
+        price: 24,
         priceSuffix: '/hr',
         seats: '1-4 guests',
         blurb:
           'For shorter outings — a single winery, dinner, sightseeing, errands. Pay only for the time you use.',
         image: '/img/place-tasting-room.webp',
         includes: [
-          'Licensed taxi and driver',
+          'Authorized car and driver',
           'Bottled water and A/C',
           'Local recommendations on request',
         ],
@@ -154,11 +154,11 @@ export const content = {
         eyebrow: 'Transfer',
         title: 'Airport transfer (MDZ)',
         duration: 'Direct',
-        price: 35,
+        price: 30,
         seats: '1-4 guests',
         blurb:
           'Meet & greet at arrivals, luggage help, direct to your accommodation. Flat rate, day or night.',
-        image: '/img/taxi-parked.webp',
+        image: '/img/car-rear.jpg',
         includes: [
           'One-way private transfer',
           'Luggage assistance',
@@ -231,50 +231,16 @@ export const content = {
       headingAfter: 'The whole company.',
       paragraphs: [
         'I was born in Mendoza, and I spend my days driving visitors between the city, the vineyards, and the mountains. The job is part logistics, part local advice: which routes make sense, where to leave enough time for lunch, and when a long drive is actually worth it.',
-        "I'm a licensed Mendoza city taxi driver — yes, an actual taxi. That's the trick: officially regulated, properly insured, and priced fairly because I'm not running a grey-market tour van. You get the same care a private driver gives, with the legitimacy of a city-licensed cab.",
+        "I drive a comfortable car that's officially authorized for tourism in Mendoza — properly registered, insured, and fairly priced. No grey-market tour van, no luxury-tour markup. You get the care and attention of a private driver, with paperwork that's fully in order.",
         "Most days I drive a couple, occasionally a small group, sometimes a single traveler who doesn't want to be on a bus. There's no fleet, no dispatcher, no handing you off — when you book Taxi Wine, I'm the person who shows up.",
       ],
       facts: [
         { label: 'Languages', value: 'EN · ES · PT' },
-        { label: 'Vehicle', value: 'Chevrolet Classic' },
+        { label: 'Vehicle', value: 'Chevrolet Onix' },
         { label: 'Capacity', value: '4 + luggage' },
       ],
       imageAlt: 'Matías with guests tasting wine in a Mendoza cellar',
       taxiImageAlt: 'The Taxi Wine vehicle parked at a Mendoza winery',
-    },
-    fitSection: {
-      eyebrow: 'Honest fit',
-      headingBefore: 'When this is the',
-      headingAccent: 'right call',
-      headingAfter: "and when it isn't.",
-      intro:
-        "I'm one driver with one taxi. Great for some trips, wrong for others — here's the difference, plainly.",
-      notMe: "Not me — and that's fine",
-    },
-    fitSelector: {
-      yes: {
-        label: 'A licensed Mendoza taxi',
-        sub: 'Plate OSB-IOJ — the registered city cab',
-        points: [
-          'You are 1-4 people, often a couple.',
-          'You want the same driver who replied to your WhatsApp to be the one at your hotel door.',
-          'You want a fixed price in dollars, not a meter, not a markup.',
-          'You like that the car is officially regulated — license, insurance, accountability.',
-          "You'd rather pay in cash on the day than wire a deposit to a tour company.",
-        ],
-      },
-      no: {
-        label: 'A multi-driver tour van',
-        sub: "When a taxi isn't the right tool",
-        points: [
-          "You are a group of 6+ — a sedan won't fit you.",
-          'You want a fixed group itinerary with strangers and a guide on a microphone.',
-          "You're booking through your hotel concierge and don't want to message a person directly.",
-          'You need a guaranteed fleet vehicle as a backup — taxis are individual.',
-        ],
-      },
-      closer:
-        "If you're unsure, message me anyway. I'll tell you honestly whether I'm the right fit, or recommend the colleague who is.",
     },
     whyChoose: {
       eyebrow: 'Why Taxi Wine',
@@ -288,8 +254,8 @@ export const content = {
         body: 'You book the person who shows up. No call centers, no rotating fleet, no hand-offs.',
       },
       {
-        title: 'A licensed Mendoza taxi.',
-        body: 'Officially registered (plate OSB-IOJ), insured, and regulated. No grey-market van — and no luxury-tour markup.',
+        title: 'An authorized tourism car.',
+        body: 'A comfortable car authorized for tourism (plate AH 207 UI), insured and regulated. No grey-market van — and no luxury-tour markup.',
       },
       {
         title: 'Fluent English.',
@@ -305,7 +271,7 @@ export const content = {
       headingBefore: 'When the day calls for',
       headingAccent: 'mountains, not Malbec.',
       intro:
-        "Many travelers do one wine day and one of these. The taxi goes everywhere the city does — and most places it doesn't.",
+        "Many travelers do one wine day and one of these. The car goes everywhere the city does — and most places it doesn't.",
     },
     experiences: [
       {
@@ -383,14 +349,14 @@ export const content = {
       headingBefore: 'Clear facts before',
       headingAccent: 'you book.',
       intro:
-        'The best tour companies in Mendoza make logistics feel invisible. Taxi Wine keeps the same promise, with one visible difference: the licensed taxi is the service.',
+        'The best tour companies in Mendoza make logistics feel invisible. Taxi Wine keeps the same promise, with one visible difference: a regulated, authorized car is the service.',
     },
     trustPoints: [
       {
-        eyebrow: 'Registered taxi',
-        title: 'Plate OSB-IOJ',
+        eyebrow: 'Authorized vehicle',
+        title: 'Plate AH 207 UI',
         body:
-          'The car is a licensed Mendoza city taxi: regulated, insured, and easy to identify when it arrives.',
+          'The car is officially authorized for tourism in Mendoza: regulated, insured, and easy to identify when it arrives.',
       },
       {
         eyebrow: 'Private by default',
@@ -417,12 +383,12 @@ export const content = {
         a: "Send me a WhatsApp or email with your dates and what you're thinking. I'll reply the same day with availability, a suggested route, and a final price.",
       },
       {
-        q: "Wait — it's an actual taxi?",
-        a: "Yes. I'm a licensed Mendoza city taxi driver who specializes in wine-country days. The car is officially registered (plate OSB-IOJ), insured, and regulated by the city. The benefit for you: legitimate paperwork, fair regulated rates, and none of the markup that grey-market tour vans charge.",
+        q: 'Is the car licensed and insured?',
+        a: "Yes. I drive a car that's officially authorized for tourism in Mendoza (plate AH 207 UI) — properly registered, insured, and regulated. The benefit for you: legitimate paperwork, fair pricing, and none of the markup that grey-market tour vans charge.",
       },
       {
         q: 'How many people fit?',
-        a: 'Up to 4 passengers comfortably, plus normal day-trip luggage. For larger groups I can recommend a colleague with a minivan.',
+        a: 'Up to 4 passengers comfortably in the car, plus normal day-trip luggage. Traveling as a larger group? Just ask — I can arrange transport for more than four.',
       },
       {
         q: 'Do I need to pay in advance?',
@@ -464,7 +430,7 @@ export const content = {
       datesLabel: 'Travel dates',
       datesPlaceholder: 'e.g. March 12-15',
       guestsLabel: 'Guests',
-      guestsHelp: 'The taxi seats up to 4 guests.',
+      guestsHelp: 'The car seats up to 4 guests — ask me about larger groups.',
       messageLabel: 'What kind of day are you imagining?',
       messagePlaceholder: 'Big lunch with views, biodynamic wines, our first time in Mendoza, etc.',
       submit: 'Send request',
@@ -502,14 +468,14 @@ export const content = {
       book: 'Reservar',
     },
     licensePlate: {
-      prefix: 'Mendoza · Taxi',
-      aria: 'Taxi habilitado de Mendoza',
+      prefix: 'Mendoza · Turismo',
+      aria: 'Auto habilitado para turismo en Mendoza',
     },
     hero: {
-      titleTop: 'Un taxi real de Mendoza.',
+      titleTop: 'Tu chofer privado en Mendoza.',
       titleAccent: 'El vino, a tu manera.',
       descriptionBefore:
-        'Registrado oficialmente, regulado y asegurado por la ciudad de Mendoza. Un chofer, precios fijos en dólares, sin sobreprecio de tour de lujo — solo ',
+        'Un auto cómodo habilitado para turismo en Mendoza — regulado y asegurado. Un chofer, precios fijos en dólares, sin sobreprecio de tour de lujo — solo ',
       descriptionEmphasis: 'el día que realmente querías',
       descriptionAfter: ', manejado por alguien que vive acá.',
       ctaPrimary: 'Ver servicios y precios',
@@ -521,14 +487,14 @@ export const content = {
         { eyebrow: 'Respuesta', value: 'Mismo día' },
       ],
       mainImageAlt: 'Filas de viñedos con la Cordillera de los Andes nevada al fondo',
-      taxiImageAlt: 'El Chevrolet Classic de Taxi Wine con los Andes al fondo',
+      taxiImageAlt: 'El Chevrolet Onix de Taxi Wine con los Andes al fondo',
     },
     servicesSection: {
       eyebrow: 'Qué ofrezco',
       heading: 'Cuatro formas de',
       headingAccent: 'viajar conmigo.',
       intro:
-        'Cada precio es por el vehículo completo, no por persona: una pareja paga lo mismo que un grupo de cuatro. Las degustaciones y los almuerzos se pagan directamente en cada bodega.',
+        'Cada precio es por el vehículo completo, no por persona: una pareja paga lo mismo que un grupo de cuatro. Las degustaciones y los almuerzos se pagan directamente en cada bodega. ¿Viajan en grupo grande? Consultame — puedo organizar traslados para más de cuatro personas.',
       details: 'Detalles',
       included: 'Incluido',
       notIncluded: 'No incluido',
@@ -541,20 +507,20 @@ export const content = {
         eyebrow: 'Día completo',
         title: 'Luján y Maipú',
         duration: 'Hasta 8 horas',
-        price: 180,
+        price: 150,
         seats: '1-4 pasajeros',
         blurb:
           'Tres bodegas clásicas a menos de 40 minutos de la ciudad. Ideal para un primer día en Mendoza.',
         image: '/img/scene-vineyard-andes.webp',
         includes: [
-          'Taxi habilitado de Mendoza y chofer por 8 horas',
+          'Auto habilitado para turismo y chofer por 8 horas',
           'Búsqueda y regreso a tu hotel',
           'Agua, aire acondicionado, inglés fluido',
           'Ayuda para reservar bodegas y almuerzo',
         ],
         excludes: [
           'Degustaciones y almuerzo',
-          'Cada hora extra: USD 22',
+          'Cada hora extra: USD 19',
         ],
       },
       {
@@ -562,20 +528,20 @@ export const content = {
         eyebrow: 'Día completo',
         title: 'Valle de Uco',
         duration: 'Hasta 10 horas',
-        price: 230,
+        price: 195,
         seats: '1-4 pasajeros',
         blurb:
           'El valle de altura que todos quieren conocer: cerca de 1,5 h por tramo, bodegas de nivel mundial y vistas panorámicas.',
         image: '/img/scene-vineyard-winter.webp',
         includes: [
-          'Taxi habilitado de Mendoza y chofer por 10 horas',
+          'Auto habilitado para turismo y chofer por 10 horas',
           'Búsqueda y regreso a tu hotel',
           'Agua, aire acondicionado, inglés fluido',
           'Ayuda para reservar bodegas y almuerzo',
         ],
         excludes: [
           'Degustaciones y almuerzo',
-          'Cada hora extra: USD 22',
+          'Cada hora extra: USD 19',
         ],
       },
       {
@@ -583,14 +549,14 @@ export const content = {
         eyebrow: 'Flexible',
         title: 'Por hora',
         duration: 'Mínimo 2 horas',
-        price: 28,
+        price: 24,
         priceSuffix: '/hora',
         seats: '1-4 pasajeros',
         blurb:
           'Para salidas cortas: una bodega, cena, paseo, compras o trámites. Pagás solo el tiempo que usás.',
         image: '/img/place-tasting-room.webp',
         includes: [
-          'Taxi habilitado y chofer',
+          'Auto habilitado y chofer',
           'Agua y aire acondicionado',
           'Recomendaciones locales si las querés',
         ],
@@ -601,11 +567,11 @@ export const content = {
         eyebrow: 'Traslado',
         title: 'Traslado aeropuerto (MDZ)',
         duration: 'Directo',
-        price: 35,
+        price: 30,
         seats: '1-4 pasajeros',
         blurb:
           'Recepción en arribos, ayuda con equipaje y traslado directo a tu alojamiento. Tarifa fija, de día o de noche.',
-        image: '/img/taxi-parked.webp',
+        image: '/img/car-rear.jpg',
         includes: [
           'Traslado privado de ida',
           'Ayuda con el equipaje',
@@ -678,50 +644,16 @@ export const content = {
       headingAfter: 'Toda la empresa.',
       paragraphs: [
         'Nací en Mendoza y paso mis días llevando visitantes entre la ciudad, los viñedos y la montaña. El trabajo es parte logística, parte consejo local: qué rutas convienen, dónde dejar tiempo para almorzar y cuándo un viaje largo realmente vale la pena.',
-        'Soy taxista habilitado de la ciudad de Mendoza — sí, un taxi de verdad. Ese es el punto: regulado oficialmente, asegurado y con precios justos porque no soy una van turística informal. Tenés el cuidado de un chofer privado, con la legitimidad de un taxi autorizado.',
+        'Manejo un auto cómodo habilitado para turismo en Mendoza — registrado oficialmente, asegurado y con precios justos. Sin van turística informal ni sobreprecio de tour de lujo. Tenés el cuidado y la atención de un chofer privado, con todos los papeles en regla.',
         'La mayoría de los días manejo una pareja, a veces un grupo chico, a veces una persona sola que no quiere subirse a un bus. No hay flota, ni central, ni cambio de chofer: cuando reservás Taxi Wine, soy yo quien llega.',
       ],
       facts: [
         { label: 'Idiomas', value: 'EN · ES · PT' },
-        { label: 'Vehículo', value: 'Chevrolet Classic' },
+        { label: 'Vehículo', value: 'Chevrolet Onix' },
         { label: 'Capacidad', value: '4 + equipaje' },
       ],
       imageAlt: 'Matías con pasajeros degustando vino en una cava de Mendoza',
       taxiImageAlt: 'El vehículo de Taxi Wine estacionado en una bodega mendocina',
-    },
-    fitSection: {
-      eyebrow: 'Encaje honesto',
-      headingBefore: 'Cuándo esta es la',
-      headingAccent: 'mejor opción',
-      headingAfter: 'y cuándo no.',
-      intro:
-        'Soy un chofer con un taxi. Excelente para algunos viajes, no ideal para otros. Así de simple.',
-      notMe: 'No soy yo — y está bien',
-    },
-    fitSelector: {
-      yes: {
-        label: 'Un taxi habilitado de Mendoza',
-        sub: 'Patente OSB-IOJ — taxi registrado de la ciudad',
-        points: [
-          'Son 1-4 personas, muchas veces una pareja.',
-          'Querés que el mismo chofer que responde tu WhatsApp esté en la puerta del hotel.',
-          'Querés precio fijo en dólares, no taxímetro ni sobreprecio.',
-          'Te da tranquilidad que el auto esté regulado: licencia, seguro y responsabilidad.',
-          'Preferís pagar en efectivo el mismo día antes que transferir una seña a una empresa.',
-        ],
-      },
-      no: {
-        label: 'Una van turística con varios choferes',
-        sub: 'Cuando un taxi no es la herramienta correcta',
-        points: [
-          'Son un grupo de 6 o más: un sedán no alcanza.',
-          'Querés un itinerario grupal fijo con guía y micrófono.',
-          'Vas a reservar por concierge y no querés hablar directo con el chofer.',
-          'Necesitás una flota con vehículo de reemplazo garantizado.',
-        ],
-      },
-      closer:
-        'Si no estás seguro, escribime igual. Te voy a decir honestamente si soy la mejor opción, o recomendarte un colega que sí lo sea.',
     },
     whyChoose: {
       eyebrow: 'Por qué Taxi Wine',
@@ -735,8 +667,8 @@ export const content = {
         body: 'Reservás a la misma persona que aparece. Sin call center, sin flota rotativa, sin pases de mano.',
       },
       {
-        title: 'Un taxi habilitado de Mendoza.',
-        body: 'Registrado oficialmente (patente OSB-IOJ), asegurado y regulado. Sin van informal ni sobreprecio de tour de lujo.',
+        title: 'Un auto habilitado para turismo.',
+        body: 'Auto cómodo habilitado para turismo (patente AH 207 UI), asegurado y regulado. Sin van informal ni sobreprecio de tour de lujo.',
       },
       {
         title: 'Inglés fluido.',
@@ -752,7 +684,7 @@ export const content = {
       headingBefore: 'Cuando el día pide',
       headingAccent: 'montaña, no Malbec.',
       intro:
-        'Muchos viajeros hacen un día de vino y otro de estos. El taxi llega a todas partes de la ciudad — y a muchos lugares más.',
+        'Muchos viajeros hacen un día de vino y otro de estos. El auto llega a todas partes de la ciudad — y a muchos lugares más.',
     },
     experiences: [
       {
@@ -830,14 +762,14 @@ export const content = {
       headingBefore: 'Datos claros antes de',
       headingAccent: 'reservar.',
       intro:
-        'Las mejores empresas de tours en Mendoza hacen que la logística se sienta invisible. Taxi Wine mantiene esa promesa, con una diferencia visible: el taxi habilitado es el servicio.',
+        'Las mejores empresas de tours en Mendoza hacen que la logística se sienta invisible. Taxi Wine mantiene esa promesa, con una diferencia visible: un auto habilitado y regulado es el servicio.',
     },
     trustPoints: [
       {
-        eyebrow: 'Taxi registrado',
-        title: 'Patente OSB-IOJ',
+        eyebrow: 'Auto habilitado',
+        title: 'Patente AH 207 UI',
         body:
-          'El auto es un taxi habilitado de Mendoza: regulado, asegurado y fácil de identificar cuando llega.',
+          'El auto está habilitado para turismo en Mendoza: regulado, asegurado y fácil de identificar cuando llega.',
       },
       {
         eyebrow: 'Privado por defecto',
@@ -864,12 +796,12 @@ export const content = {
         a: 'Mandame un WhatsApp o email con tus fechas y la idea que tenés. Respondo el mismo día con disponibilidad, una ruta sugerida y precio final.',
       },
       {
-        q: '¿Es un taxi de verdad?',
-        a: 'Sí. Soy taxista habilitado de la ciudad de Mendoza y me especializo en días de vino. El auto está registrado oficialmente (patente OSB-IOJ), asegurado y regulado por la ciudad.',
+        q: '¿El auto está habilitado y asegurado?',
+        a: 'Sí. Manejo un auto habilitado para turismo en Mendoza (patente AH 207 UI): registrado oficialmente, asegurado y regulado. Para vos significa papeles en regla, precio justo y sin el sobreprecio de las vans turísticas informales.',
       },
       {
         q: '¿Cuántas personas entran?',
-        a: 'Hasta 4 pasajeros cómodos, más equipaje normal de una salida de día. Para grupos más grandes puedo recomendar un colega con minivan.',
+        a: 'Hasta 4 pasajeros cómodos en el auto, más equipaje normal de una salida de día. ¿Son un grupo más grande? Consultame — puedo organizar traslados para más de cuatro personas.',
       },
       {
         q: '¿Tengo que pagar por adelantado?',
@@ -911,7 +843,7 @@ export const content = {
       datesLabel: 'Fechas de viaje',
       datesPlaceholder: 'ej. 12-15 de marzo',
       guestsLabel: 'Pasajeros',
-      guestsHelp: 'El taxi lleva hasta 4 pasajeros.',
+      guestsHelp: 'El auto lleva hasta 4 pasajeros — consultá por grupos más grandes.',
       messageLabel: '¿Qué tipo de día imaginás?',
       messagePlaceholder: 'Almuerzo con vistas, vinos biodinámicos, primera vez en Mendoza, etc.',
       submit: 'Enviar solicitud',
@@ -950,13 +882,13 @@ export const content = {
     },
     licensePlate: {
       prefix: 'Mendoza · Táxi',
-      aria: 'Táxi licenciado de Mendoza',
+      aria: 'Carro habilitado para turismo em Mendoza',
     },
     hero: {
-      titleTop: 'Um táxi de verdade em Mendoza.',
+      titleTop: 'Seu motorista particular em Mendoza.',
       titleAccent: 'O vinho, do seu jeito.',
       descriptionBefore:
-        'Registrado oficialmente, regulado e segurado pela cidade de Mendoza. Um motorista, preços fixos em dólares, sem taxa de tour de luxo — só ',
+        'Um carro confortável habilitado para turismo em Mendoza — regulado e segurado. Um motorista, preços fixos em dólares, sem taxa de tour de luxo — só ',
       descriptionEmphasis: 'o dia que você realmente queria',
       descriptionAfter: ', guiado por alguém que mora aqui.',
       ctaPrimary: 'Ver serviços e preços',
@@ -968,14 +900,14 @@ export const content = {
         { eyebrow: 'Resposta', value: 'Mesmo dia' },
       ],
       mainImageAlt: 'Fileiras de vinhedos com os Andes nevados ao fundo',
-      taxiImageAlt: 'O Chevrolet Classic da Taxi Wine com os Andes ao fundo',
+      taxiImageAlt: 'O Chevrolet Onix da Taxi Wine com os Andes ao fundo',
     },
     servicesSection: {
       eyebrow: 'O que ofereço',
       heading: 'Quatro formas de',
       headingAccent: 'viajar comigo.',
       intro:
-        'Cada preço é pelo carro inteiro, não por pessoa: um casal paga o mesmo que um grupo de quatro. Degustações e almoços são pagos diretamente em cada vinícola.',
+        'Cada preço é pelo carro inteiro, não por pessoa: um casal paga o mesmo que um grupo de quatro. Degustações e almoços são pagos diretamente em cada vinícola. Vão em grupo maior? É só pedir — posso organizar transporte para mais de quatro pessoas.',
       details: 'Detalhes',
       included: 'Incluído',
       notIncluded: 'Não incluído',
@@ -988,20 +920,20 @@ export const content = {
         eyebrow: 'Dia inteiro',
         title: 'Luján e Maipú',
         duration: 'Até 8 horas',
-        price: 180,
+        price: 150,
         seats: '1-4 passageiros',
         blurb:
           'Três vinícolas clássicas a menos de 40 minutos da cidade. Ideal para um primeiro dia em Mendoza.',
         image: '/img/scene-vineyard-andes.webp',
         includes: [
-          'Táxi licenciado de Mendoza e motorista por 8 horas',
+          'Carro habilitado para turismo e motorista por 8 horas',
           'Busca e retorno no seu hotel',
           'Água, ar-condicionado, inglês fluente',
           'Ajuda para reservar vinícolas e almoço',
         ],
         excludes: [
           'Degustações e almoço',
-          'Cada hora extra: USD 22',
+          'Cada hora extra: USD 19',
         ],
       },
       {
@@ -1009,20 +941,20 @@ export const content = {
         eyebrow: 'Dia inteiro',
         title: 'Valle de Uco',
         duration: 'Até 10 horas',
-        price: 230,
+        price: 195,
         seats: '1-4 passageiros',
         blurb:
           'O vale de altitude que todo mundo quer conhecer: cerca de 1,5 h por trecho, vinícolas de nível mundial e vistas panorâmicas.',
         image: '/img/scene-vineyard-winter.webp',
         includes: [
-          'Táxi licenciado de Mendoza e motorista por 10 horas',
+          'Carro habilitado para turismo e motorista por 10 horas',
           'Busca e retorno no seu hotel',
           'Água, ar-condicionado, inglês fluente',
           'Ajuda para reservar vinícolas e almoço',
         ],
         excludes: [
           'Degustações e almoço',
-          'Cada hora extra: USD 22',
+          'Cada hora extra: USD 19',
         ],
       },
       {
@@ -1030,14 +962,14 @@ export const content = {
         eyebrow: 'Flexível',
         title: 'Por hora',
         duration: 'Mínimo 2 horas',
-        price: 28,
+        price: 24,
         priceSuffix: '/h',
         seats: '1-4 passageiros',
         blurb:
           'Para saídas curtas: uma vinícola, jantar, passeio, compras ou compromissos. Você paga apenas pelo tempo usado.',
         image: '/img/place-tasting-room.webp',
         includes: [
-          'Táxi licenciado e motorista',
+          'Carro habilitado e motorista',
           'Água e ar-condicionado',
           'Recomendações locais, se quiser',
         ],
@@ -1048,11 +980,11 @@ export const content = {
         eyebrow: 'Transfer',
         title: 'Transfer aeroporto (MDZ)',
         duration: 'Direto',
-        price: 35,
+        price: 30,
         seats: '1-4 passageiros',
         blurb:
           'Recepção na chegada, ajuda com bagagem e traslado direto até sua hospedagem. Tarifa fixa, de dia ou de noite.',
-        image: '/img/taxi-parked.webp',
+        image: '/img/car-rear.jpg',
         includes: [
           'Transfer privado de ida',
           'Ajuda com bagagem',
@@ -1125,50 +1057,16 @@ export const content = {
       headingAfter: 'A empresa inteira.',
       paragraphs: [
         'Nasci em Mendoza e passo meus dias levando visitantes entre a cidade, os vinhedos e a montanha. O trabalho é parte logística, parte conselho local: quais rotas fazem sentido, onde deixar tempo para almoçar e quando uma viagem longa realmente vale a pena.',
-        'Sou motorista de táxi licenciado da cidade de Mendoza — sim, um táxi de verdade. Esse é o ponto: oficialmente regulado, segurado e com preço justo porque não sou uma van turística informal. Você tem o cuidado de um motorista privado, com a legitimidade de um táxi autorizado.',
+        'Dirijo um carro confortável habilitado para turismo em Mendoza — registrado oficialmente, segurado e com preço justo. Sem van turística informal e sem preço de tour de luxo. Você tem o cuidado e a atenção de um motorista particular, com toda a papelada em ordem.',
         'Na maioria dos dias levo um casal, às vezes um grupo pequeno, às vezes uma pessoa sozinha que não quer entrar em um ônibus. Não há frota, central ou troca de motorista: quando você reserva a Taxi Wine, sou eu que apareço.',
       ],
       facts: [
         { label: 'Idiomas', value: 'EN · ES · PT' },
-        { label: 'Veículo', value: 'Chevrolet Classic' },
+        { label: 'Veículo', value: 'Chevrolet Onix' },
         { label: 'Capacidade', value: '4 + bagagem' },
       ],
       imageAlt: 'Matías com visitantes degustando vinho em uma cave de Mendoza',
       taxiImageAlt: 'O veículo da Taxi Wine estacionado em uma vinícola de Mendoza',
-    },
-    fitSection: {
-      eyebrow: 'Escolha honesta',
-      headingBefore: 'Quando esta é a',
-      headingAccent: 'melhor opção',
-      headingAfter: 'e quando não é.',
-      intro:
-        'Sou um motorista com um táxi. Ótimo para algumas viagens, errado para outras. Aqui está a diferença, sem complicar.',
-      notMe: 'Não sou eu — e tudo bem',
-    },
-    fitSelector: {
-      yes: {
-        label: 'Um táxi licenciado de Mendoza',
-        sub: 'Placa OSB-IOJ — táxi registrado da cidade',
-        points: [
-          'Vocês são 1-4 pessoas, muitas vezes um casal.',
-          'Você quer que o mesmo motorista que respondeu no WhatsApp esteja na porta do hotel.',
-          'Você quer preço fixo em dólares, não taxímetro nem acréscimo escondido.',
-          'Você gosta da segurança de um carro regulado: licença, seguro e responsabilidade.',
-          'Prefere pagar em dinheiro no dia em vez de enviar sinal para uma empresa de tours.',
-        ],
-      },
-      no: {
-        label: 'Uma van turística com vários motoristas',
-        sub: 'Quando um táxi não é a ferramenta certa',
-        points: [
-          'Vocês são um grupo de 6 ou mais: um sedã não comporta.',
-          'Você quer um roteiro fixo em grupo com guia e microfone.',
-          'Vai reservar pelo concierge do hotel e não quer falar diretamente com o motorista.',
-          'Precisa de frota com veículo reserva garantido.',
-        ],
-      },
-      closer:
-        'Se você não tiver certeza, me mande mensagem mesmo assim. Eu digo honestamente se sou a melhor opção, ou recomendo um colega que seja.',
     },
     whyChoose: {
       eyebrow: 'Por que Taxi Wine',
@@ -1182,8 +1080,8 @@ export const content = {
         body: 'Você reserva a pessoa que aparece. Sem call center, sem frota rotativa, sem troca no meio do caminho.',
       },
       {
-        title: 'Um táxi licenciado de Mendoza.',
-        body: 'Registrado oficialmente (placa OSB-IOJ), segurado e regulado. Sem van informal e sem preço de tour de luxo.',
+        title: 'Um carro habilitado para turismo.',
+        body: 'Carro confortável habilitado para turismo (placa AH 207 UI), segurado e regulado. Sem van informal e sem preço de tour de luxo.',
       },
       {
         title: 'Inglês fluente.',
@@ -1199,7 +1097,7 @@ export const content = {
       headingBefore: 'Quando o dia pede',
       headingAccent: 'montanha, não Malbec.',
       intro:
-        'Muitos viajantes fazem um dia de vinho e outro desses. O táxi vai a todos os lugares da cidade — e a muitos além dela.',
+        'Muitos viajantes fazem um dia de vinho e outro desses. O carro vai a todos os lugares da cidade — e a muitos além dela.',
     },
     experiences: [
       {
@@ -1277,14 +1175,14 @@ export const content = {
       headingBefore: 'Fatos claros antes de',
       headingAccent: 'reservar.',
       intro:
-        'As melhores empresas de tours em Mendoza fazem a logística parecer invisível. A Taxi Wine mantém essa promessa, com uma diferença visível: o táxi licenciado é o serviço.',
+        'As melhores empresas de tours em Mendoza fazem a logística parecer invisível. A Taxi Wine mantém essa promessa, com uma diferença visível: um carro habilitado e regulado é o serviço.',
     },
     trustPoints: [
       {
-        eyebrow: 'Táxi registrado',
-        title: 'Placa OSB-IOJ',
+        eyebrow: 'Carro habilitado',
+        title: 'Placa AH 207 UI',
         body:
-          'O carro é um táxi licenciado de Mendoza: regulado, segurado e fácil de identificar quando chega.',
+          'O carro é habilitado para turismo em Mendoza: regulado, segurado e fácil de identificar quando chega.',
       },
       {
         eyebrow: 'Privado por padrão',
@@ -1311,12 +1209,12 @@ export const content = {
         a: 'Envie um WhatsApp ou email com suas datas e o que você imagina. Respondo no mesmo dia com disponibilidade, uma rota sugerida e preço final.',
       },
       {
-        q: 'É um táxi de verdade?',
-        a: 'Sim. Sou motorista de táxi licenciado da cidade de Mendoza e especializado em dias de vinho. O carro é registrado oficialmente (placa OSB-IOJ), segurado e regulado pela cidade.',
+        q: 'O carro é habilitado e segurado?',
+        a: 'Sim. Dirijo um carro habilitado para turismo em Mendoza (placa AH 207 UI): registrado oficialmente, segurado e regulado. Para você, significa papelada em ordem, preço justo e sem o acréscimo das vans turísticas informais.',
       },
       {
         q: 'Quantas pessoas cabem?',
-        a: 'Até 4 passageiros confortavelmente, mais bagagem normal de passeio. Para grupos maiores posso indicar um colega com minivan.',
+        a: 'Até 4 passageiros confortavelmente no carro, mais bagagem normal de passeio. Vão em grupo maior? É só pedir — posso organizar transporte para mais de quatro pessoas.',
       },
       {
         q: 'Preciso pagar antecipado?',
@@ -1358,7 +1256,7 @@ export const content = {
       datesLabel: 'Datas da viagem',
       datesPlaceholder: 'ex. 12-15 de março',
       guestsLabel: 'Passageiros',
-      guestsHelp: 'O táxi leva até 4 passageiros.',
+      guestsHelp: 'O carro leva até 4 passageiros — pergunte sobre grupos maiores.',
       messageLabel: 'Que tipo de dia você imagina?',
       messagePlaceholder: 'Almoço com vista, vinhos biodinâmicos, primeira vez em Mendoza, etc.',
       submit: 'Enviar pedido',
