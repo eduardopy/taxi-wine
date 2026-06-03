@@ -1,5 +1,5 @@
 ---
-import { getContent, type Locale } from '../site.config';
+import { getContent, withBase, type Locale } from '../site.config';
 
 interface Props {
   locale?: Locale;
@@ -37,7 +37,7 @@ const t = getContent(locale);
           >
             <div class={`${aspects[i]} w-full overflow-hidden`}>
               <img
-                src={exp.image}
+                src={withBase(exp.image)}
                 alt={exp.title}
                 class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 loading="lazy"

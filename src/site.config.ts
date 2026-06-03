@@ -27,6 +27,17 @@ export const locales = ['pt', 'en', 'es'] as const;
 export type Locale = typeof locales[number];
 export const defaultLocale: Locale = 'pt';
 
+const baseUrl = import.meta.env.BASE_URL ?? '/';
+const normalizedBase = baseUrl.endsWith('/') ? baseUrl.slice(0, -1) : baseUrl;
+
+export function withBase(path: string): string {
+  if (!path.startsWith('/')) {
+    return path;
+  }
+
+  return `${normalizedBase}${path}`;
+}
+
 export const localeMeta: Record<Locale, {
   label: string;
   name: string;
@@ -881,7 +892,7 @@ export const content = {
       book: 'Reservar',
     },
     licensePlate: {
-      prefix: 'Mendoza · Táxi',
+      prefix: 'Mendoza · Turismo',
       aria: 'Carro habilitado para turismo em Mendoza',
     },
     hero: {

@@ -1,5 +1,5 @@
 ---
-import { getContent, site, type Locale } from '../site.config';
+import { getContent, site, withBase, type Locale } from '../site.config';
 
 interface Props {
   locale?: Locale;
@@ -20,7 +20,7 @@ const t = getContent(locale);
         <div class="relative">
           <div class="aspect-[4/5] w-full overflow-hidden">
             <img
-              src="/img/guests-cellar.webp"
+              src={withBase('/img/guests-cellar.webp')}
               alt={t.about.imageAlt}
               class="w-full h-full object-cover"
               loading="lazy"
@@ -32,7 +32,7 @@ const t = getContent(locale);
             style="border-color: var(--color-cream-2); box-shadow: 0 18px 40px -18px rgba(26, 22, 18, 0.4);"
           >
             <img
-              src="/img/car-side.jpg"
+              src={withBase('/img/car-side.jpg')}
               alt={t.about.taxiImageAlt}
               class="w-full h-full object-cover"
               loading="lazy"

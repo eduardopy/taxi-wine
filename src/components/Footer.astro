@@ -1,5 +1,5 @@
 ---
-import { contact, getContent, localeMeta, locales, site, type Locale } from '../site.config';
+import { contact, getContent, localeMeta, locales, site, withBase, type Locale } from '../site.config';
 import LicensePlate from './LicensePlate.astro';
 
 interface Props {
@@ -84,7 +84,7 @@ const year = new Date().getFullYear();
           {locales.map((item) => (
             <li>
               <a
-                href={localeMeta[item].path}
+                href={withBase(localeMeta[item].path)}
                 class="hover:opacity-60 transition-opacity"
                 style={item === locale ? 'color: var(--color-wine);' : ''}
                 aria-current={item === locale ? 'page' : undefined}

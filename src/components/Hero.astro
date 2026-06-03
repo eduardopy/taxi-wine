@@ -1,5 +1,5 @@
 ---
-import { getContent, type Locale } from '../site.config';
+import { getContent, withBase, type Locale } from '../site.config';
 import LicensePlate from './LicensePlate.astro';
 
 interface Props {
@@ -44,7 +44,7 @@ const t = getContent(locale);
             style="background: var(--color-wine);"
           >
             <img
-              src="/img/scene-vineyard-andes.webp"
+              src={withBase('/img/scene-vineyard-andes.webp')}
               alt={t.hero.mainImageAlt}
               class="w-full h-full object-cover"
               loading="eager"
@@ -56,7 +56,7 @@ const t = getContent(locale);
             style="border-color: var(--color-cream); box-shadow: 0 18px 40px -18px rgba(26, 22, 18, 0.4);"
           >
             <img
-              src="/img/car-front.jpg"
+              src={withBase('/img/car-front.jpg')}
               alt={t.hero.taxiImageAlt}
               class="w-full h-full object-cover"
               loading="eager"
