@@ -31,12 +31,12 @@ const jsonLd = {
   '@context': 'https://schema.org',
   '@graph': [
     {
-      '@type': ['LocalBusiness', 'TaxiService'],
+      '@type': ['LocalBusiness', 'TravelAgency'],
       '@id': `${siteUrl}#business`,
       name: site.brand,
       description: pageDescription,
       url: siteUrl,
-      image: `${siteUrl}/img/taxi-andes.webp`,
+      image: `${siteUrl}/img/car-front.jpg`,
       telephone: contact.whatsappDisplay,
       email: contact.email,
       areaServed: [
@@ -78,7 +78,7 @@ const jsonLd = {
     ...t.routes.map((route) => ({
       '@type': 'TouristTrip',
       '@id': `${siteUrl}#route-${route.id}-${locale}`,
-      name: `${route.title} wine route with private taxi`,
+      name: `${route.title} wine route with private driver`,
       description: route.bestFor,
       provider: { '@id': `${siteUrl}#business` },
       touristType: 'Wine tourist',
