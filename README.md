@@ -2,7 +2,7 @@
 
 Marketing site for Taxi Wine — a single-driver private wine tour service in Mendoza, Argentina.
 
-Built with **Astro 5** + **Tailwind CSS v4**. Static, fast, and deployed to GitHub Pages from `main` via GitHub Actions.
+Built with **Astro 5** + **Tailwind CSS v4**. Static, fast, and hosted on Netlify at `https://taxiwine.com`.
 
 ---
 
@@ -75,7 +75,11 @@ To swap fonts, edit the `@import` URL at the top of `global.css` and the `--font
 
 ## Deploying
 
-GitHub Pages is configured for workflow deployment. Every push to `main` runs `.github/workflows/deploy.yml`, builds the Astro site, and publishes `dist` to:
+Netlify is the production host. Every push to `main` builds from `netlify.toml` and publishes `dist` to:
+
+<https://taxiwine.com/>
+
+GitHub Pages is also configured as a secondary preview. Its workflow passes `ASTRO_SITE=https://eduardopy.github.io` and `ASTRO_BASE=/taxi-wine` so links/assets work under the repository subpath:
 
 <https://eduardopy.github.io/taxi-wine/>
 
@@ -92,7 +96,7 @@ Before launching, confirm the remaining business details:
 - [ ] Confirm prices (`$113`, `$146`, `$18/hr`, `$23`, extra hour `USD 14`)
 - [ ] Real TripAdvisor / Google reviews, then replace the current trust cards
 - [ ] Personalize the bio paragraphs in all three `content.*.about` entries
-- [ ] Your real domain in `astro.config.mjs` (the `site:` value, used for SEO)
+- [ ] Keep `ASTRO_SITE` values in sync if the production or preview domains change
 
 Once those are in, you're ready to deploy.
 
@@ -103,6 +107,7 @@ Once those are in, you're ready to deploy.
 ```
 taxi-wine/
 ├── astro.config.mjs        # Astro config + Tailwind plugin
+├── netlify.toml            # Netlify production build config
 ├── package.json
 ├── tsconfig.json
 ├── public/

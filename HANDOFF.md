@@ -20,7 +20,7 @@
 
 ## 2. What's already done
 
-- Astro 5 + Tailwind v4 single-page site, static build, deployed to GitHub Pages from `main` via GitHub Actions.
+- Astro 5 + Tailwind v4 single-page site, static build. Production is Netlify at `https://taxiwine.com`; GitHub Pages is a secondary preview at `https://eduardopy.github.io/taxi-wine/`.
 - Editorial wine-cellar aesthetic: cream background, deep wine-red accents, Fraunces serif display + Instrument Sans body, subtle grain texture, asymmetric layouts, decorative italic accents.
 - Sections: Hero → Services (4 cards: Luján/Maipú, Valle de Uco, hourly, airport) → **Routes** (Luján, Maipú, Valle de Uco planning guidance) → About → Why-choose pillars → **Experiences** (Aconcagua, horseback, Cacheuta, mixed days) → **Gallery band** (customer photos) → Process → Trust cards → FAQ → Contact (form + WhatsApp/email/IG) → Footer + sticky WhatsApp float.
 - Real photos integrated from his Instagram (provided by the dev as a zip): the Onix, vineyard scenery, cellar tasting moments, Andes shots, customer photos at named wineries.
@@ -28,6 +28,7 @@
 - Content centralized in `src/site.config.ts` so non-technical edits are one-file, with copy under `content.en`, `content.es`, and `content.pt`.
 - Theme tokens in `src/styles/global.css` under `@theme`.
 - README with setup and deploy instructions.
+- `astro.config.mjs` is environment-aware: Netlify builds with root paths for `taxiwine.com`, while GitHub Pages passes `ASTRO_BASE=/taxi-wine`.
 
 ## 3. What's a prototype / what's broken / what's a placeholder
 
