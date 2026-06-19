@@ -17,7 +17,7 @@ export const site = {
 };
 
 export const contact = {
-  whatsapp: '5492612517146',                // TODO real number, no + or spaces
+  whatsapp: '5492612517146',                // WhatsApp number, no + or spaces
   whatsappDisplay: '+54 9 2612 51-7146',
   email: 'hello@taxiwine.com',              // TODO
   instagram: 'taxi.wine',

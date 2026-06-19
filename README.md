@@ -2,13 +2,13 @@
 
 Marketing site for Taxi Wine — a single-driver private wine tour service in Mendoza, Argentina.
 
-Built with **Astro 5** + **Tailwind CSS v4**. Static, fast, and free to host on Cloudflare Pages or Netlify.
+Built with **Astro 5** + **Tailwind CSS v4**. Static, fast, and deployed to GitHub Pages from `main` via GitHub Actions.
 
 ---
 
 ## Quick start
 
-You need [Node.js 20+](https://nodejs.org) installed.
+You need [Node.js 24+](https://nodejs.org) installed.
 
 ```bash
 npm install         # install dependencies
@@ -36,17 +36,15 @@ After saving, the dev server reloads automatically.
 
 The site builds three static language routes:
 
-- `/` — English
+- `/` — Portuguese
+- `/en/` — English
 - `/es/` — Spanish
-- `/pt/` — Portuguese
 
 Each route has localized title/description metadata, `hreflang` alternate links, and localized JSON-LD service/route descriptions.
 
 ### Photos
 
-Put your photos in `/public/` and reference them like `/your-photo.jpg`. The placeholders to replace:
-
-- **`/public/driver.jpg`** — your portrait, used in the About section. Currently a colored placeholder. Open `src/components/About.astro` and replace the placeholder div with `<img src="/driver.jpg" alt="..." class="w-full h-full object-cover" />`.
+Put your photos in `/public/` and reference them like `/your-photo.jpg`. Current image assets live in `/public/img/`, including the Chevrolet Onix photos and vineyard/customer images used across the page.
 
 Recommended sizes: portrait 800×1000px, hero 1600×900px. Compress with [Squoosh](https://squoosh.app) before uploading.
 
@@ -75,37 +73,23 @@ To swap fonts, edit the `@import` URL at the top of `global.css` and the `--font
 
 ---
 
-## Deploying (free)
+## Deploying
 
-### Cloudflare Pages (recommended)
+GitHub Pages is configured for workflow deployment. Every push to `main` runs `.github/workflows/deploy.yml`, builds the Astro site, and publishes `dist` to:
 
-1. Push this folder to a GitHub repo.
-2. Go to <https://pages.cloudflare.com>, log in, click **Create a project → Connect to Git**.
-3. Select your repo. Build settings:
-   - Framework preset: **Astro**
-   - Build command: `npm run build`
-   - Build output: `dist`
-4. Click **Save and Deploy**.
-5. Add your custom domain under **Custom domains** when ready.
-
-Cost: **free** for sites this size, forever. You only pay for the domain (~$12/year).
-
-### Netlify (alternative)
-
-Same flow at <https://app.netlify.com> — auto-detects Astro.
+<https://eduardopy.github.io/taxi-wine/>
 
 ---
 
 ## What still needs your attention
 
-Before launching, replace the placeholders:
+Before launching, confirm the remaining business details:
 
-- [ ] Real driver name (`site.driverName` in `site.config.ts`)
-- [ ] Real WhatsApp number (`contact.whatsapp` — no `+`, no spaces, e.g. `5492611234567`)
+- [ ] Confirm driver name spelling (`site.driverName` in `site.config.ts`)
+- [ ] Confirm WhatsApp number (`contact.whatsapp` is currently `5492612517146`)
 - [ ] Real email
-- [ ] Real Instagram handle (or remove the line)
-- [ ] Real prices (currently match Malbec Transfer's ballpark — adjust for your market)
-- [ ] Driver portrait at `/public/driver.jpg`
+- [ ] Confirm Instagram handle (or remove the line)
+- [ ] Confirm prices (`$113`, `$146`, `$18/hr`, `$23`, extra hour `USD 14`)
 - [ ] Real TripAdvisor / Google reviews, then replace the current trust cards
 - [ ] Personalize the bio paragraphs in all three `content.*.about` entries
 - [ ] Your real domain in `astro.config.mjs` (the `site:` value, used for SEO)
@@ -122,7 +106,8 @@ taxi-wine/
 ├── package.json
 ├── tsconfig.json
 ├── public/
-│   └── favicon.svg
+│   ├── favicon.svg
+│   └── img/               # site photos
 └── src/
     ├── site.config.ts      # ← edit this for most content
     ├── styles/
@@ -144,7 +129,7 @@ taxi-wine/
     │   ├── Footer.astro
     │   └── WhatsAppFloat.astro
     └── pages/
-        ├── index.astro     # English homepage
+        ├── index.astro     # Portuguese homepage
+        ├── en/index.astro  # English homepage
         ├── es/index.astro  # Spanish homepage
-        └── pt/index.astro  # Portuguese homepage
 ```

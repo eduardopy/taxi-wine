@@ -6,9 +6,9 @@
 
 ## 1. The client and the problem
 
-**Who it's for:** Matías Licata (name unconfirmed — visible as a watermark on one of his Instagram photos; verify with the dev who hired you). He's a single licensed Mendoza city taxi driver who specializes in private wine tours and other tourism trips around the region. Operates as **"Taxi Wine"** (Instagram: `@taxi.wine`).
+**Who it's for:** Matías Licata (name unconfirmed — visible as a watermark on one of his Instagram photos; verify with the dev who hired you). He's a single Mendoza private driver who specializes in wine tours and other tourism trips around the region. Operates as **"Taxi Wine"** (Instagram: `@taxi.wine`).
 
-**What's important and easy to miss:** he's not a luxury transfer company pretending to be a taxi. He is *literally a taxi*. A registered, plate-OSB-IOJ, black-and-yellow Chevrolet Classic with the official Mendoza Gobierno decal, working as a city cab and using that license to do tourism. This is a real differentiator (legal, regulated, fair-priced) and the site should not hide it. Maximum capacity is 4, not 6 — sedan, not minivan.
+**What's important and easy to miss:** the current site no longer positions him as the black-and-yellow city taxi version. It presents a Chevrolet Onix authorized for tourism in Mendoza, plate **AH 207 UI**. The differentiator is still legality, insurance, fair pricing, and direct owner-driver service, but the wording should be "authorized tourism car/private driver," not "licensed city taxi." Maximum capacity is 4, not 6.
 
 **The dev's brief from the client was:** "make it like the others." He pointed at competitors like [malbectransfer.com](https://malbectransfer.com), [drivingmendozawinetours.com](https://drivingmendozawinetours.com), [discoverywinemendoza.com](https://www.discoverywinemendoza.com/en) as references. He's hands-off and not opinionated about design. The dev is doing this for him, not for himself.
 
@@ -20,11 +20,11 @@
 
 ## 2. What's already done
 
-- Astro 5 + Tailwind v4 single-page site, static build, designed for free Cloudflare Pages hosting.
+- Astro 5 + Tailwind v4 single-page site, static build, deployed to GitHub Pages from `main` via GitHub Actions.
 - Editorial wine-cellar aesthetic: cream background, deep wine-red accents, Fraunces serif display + Instrument Sans body, subtle grain texture, asymmetric layouts, decorative italic accents.
 - Sections: Hero → Services (4 cards: Luján/Maipú, Valle de Uco, hourly, airport) → **Routes** (Luján, Maipú, Valle de Uco planning guidance) → About → Why-choose pillars → **Experiences** (Aconcagua, horseback, Cacheuta, mixed days) → **Gallery band** (customer photos) → Process → Trust cards → FAQ → Contact (form + WhatsApp/email/IG) → Footer + sticky WhatsApp float.
-- Real photos integrated from his Instagram (provided by the dev as a zip): the actual taxi, vineyard scenery, cellar tasting moments, Andes shots, customer photos at named wineries.
-- English, Spanish, and Portuguese versions are live as static routes: `/`, `/es/`, `/pt/`.
+- Real photos integrated from his Instagram (provided by the dev as a zip): the Onix, vineyard scenery, cellar tasting moments, Andes shots, customer photos at named wineries.
+- Portuguese, English, and Spanish versions are live as static routes: `/`, `/en/`, `/es/`.
 - Content centralized in `src/site.config.ts` so non-technical edits are one-file, with copy under `content.en`, `content.es`, and `content.pt`.
 - Theme tokens in `src/styles/global.css` under `@theme`.
 - README with setup and deploy instructions.
@@ -33,15 +33,15 @@
 
 **Genuinely placeholder, must be fixed before launch:**
 - Reviews no longer use invented placeholder quotes. The section is currently trust cards based on checkable business facts. Replace with real TripAdvisor or Google reviews once those profile URLs exist.
-- WhatsApp number, email, and domain in `site.config.ts` are dummy values. The real WhatsApp must be in international format, no `+`, no spaces (e.g. `5492611234567`).
+- WhatsApp is currently set to `5492612517146` / `+54 9 2612 51-7146`; still confirm with Matías before production. Email and domain are still placeholder-ish.
 - The driver bio in `About.astro` is now generic but presentable. It still needs Matías's real story before launch.
 
 **Working but worth questioning:**
-- Prices ($180 / $230 / $28 hr / $35 airport) are *educated guesses* — slightly below the multi-driver competitors to reflect the taxi-vs-tour-van angle. The client never confirmed his actual rates.
+- Prices are currently `$113 / $146 / $18 hr / $23 airport`, with extra hour `USD 14`. They were reduced roughly 25% from the previous source version. The client still needs to confirm his actual rates.
 - The image strategy is "use what we have." His IG photos are 640×640 Instagram crops, fine for cards but limiting for a true hero treatment. If the next session wants a more dramatic hero, you'll need to either get higher-res originals from him or use complementary stock photography.
 - The "experiences" section talks confidently about horseback / Aconcagua / Cacheuta day structures — those are inferred from his IG posts, not confirmed pricing or itineraries. Treat as scaffolding.
 - The site is now trilingual. Translation is good enough for launch preview, but Matías should still review the Spanish/Portuguese wording before production.
-- The "Mendoza Gobierno" / plate-number / licensed-taxi angle is leaned into in the About and FAQ. The dev's instruction was "incorporate the taxi element but keep polished" — this was the compromise. Could go further, could pull back.
+- The plate-number / authorized-tourism-car angle is leaned into in the About and FAQ. Keep the copy polished and avoid reverting to "real city taxi" language unless the business facts change again.
 
 **Image-quality caveats:**
 - Source photos are 640×640 from Instagram. They look fine in cards, fine in the gallery, slightly soft when used at hero scale. If you build a hero that uses one full-bleed, get originals from him.
@@ -54,7 +54,7 @@
 
 These are pitches, not commitments. Pick what serves the client.
 
-1. **Per-service landing pages with SEO targeting.** "Private driver Luján de Cuyo," "Private driver Valle de Uco," "Private taxi Mendoza airport," "Aconcagua day trip private driver" — each as its own page with schema.org `TouristTrip` + `LocalBusiness` JSON-LD. The single-page approach we have wins on UX but loses on SEO discoverability. For a tourism business that depends on Google search, dedicated landing pages probably matter more than a polished home.
+1. **Per-service landing pages with SEO targeting.** "Private driver Luján de Cuyo," "Private driver Valle de Uco," "Mendoza airport private transfer," "Aconcagua day trip private driver" — each as its own page with schema.org `TouristTrip` + `LocalBusiness` JSON-LD. The single-page approach we have wins on UX but loses on SEO discoverability. For a tourism business that depends on Google search, dedicated landing pages probably matter more than a polished home.
 
 2. **Language QA.** English, Spanish, and Portuguese pages exist. Before production, have a native speaker/client review the Spanish and Portuguese copy, especially prices, payment language, and the driver bio.
 
@@ -64,7 +64,7 @@ These are pitches, not commitments. Pick what serves the client.
 
 5. **Schema.org structured data.** `LocalBusiness` with the plate number, license, hours; `TouristTrip` for each service. Worth real Google ranking points in a category that's heavy on aggregators.
 
-6. **A "verify my license" callout.** The plate number and Mendoza city decal are visible in his photos. A small badge linking to the city's taxi registry (if such a public lookup exists) would be a unique trust signal that no other operator can match. Worth a research session.
+6. **A "verify my authorization" callout.** The plate number is visible in his photos. A small badge or link to any public tourism-vehicle registry, if one exists, would be a useful trust signal. Worth a research session.
 
 7. **A real CMS layer if the client ever wants to self-edit.** TinaCMS or Decap (git-based, no separate DB) over `site.config.ts`. Skip if the dev is happy to keep editing for him — for 4 services and quarterly price updates, a CMS is overkill.
 
@@ -83,16 +83,16 @@ src/
   site.config.ts          ← all content, edit here first
   styles/global.css       ← @theme tokens, fonts, base
   layouts/BaseLayout.astro
-  pages/index.astro       ← English homepage
+  pages/index.astro       ← Portuguese homepage
+  pages/en/index.astro    ← English homepage
   pages/es/index.astro    ← Spanish homepage
-  pages/pt/index.astro    ← Portuguese homepage
   components/
     HomePage.astro        ← composes the section components
     Header.astro
-    Hero.astro            ← photo collage with vineyard + taxi inset
+    Hero.astro            ← photo collage with vineyard + car inset
     Services.astro        ← 4 cards, each with image + collapsible details
     Routes.astro          ← region-choice cards inspired by competitor route pages
-    About.astro           ← collage (cellar photo + taxi inset), generic bio to personalize
+    About.astro           ← collage (cellar photo + car inset), generic bio to personalize
     WhyChoose.astro       ← 4 pillars
     Experiences.astro     ← NEW — beyond-wine grid (4 items, asymmetric)
     Gallery.astro         ← NEW — customer-moments band
@@ -111,7 +111,7 @@ public/
 
 To finish this site (or replace it), the dev needs from Matías:
 
-- [ ] Real WhatsApp number for international travelers (the one he uses for client comms)
+- [ ] Confirm WhatsApp number for international travelers (currently `+54 9 2612 51-7146`)
 - [ ] Real email address
 - [ ] Confirmation of his actual prices for all four services
 - [ ] Confirmation of his name spelling and how he wants to be addressed
@@ -129,9 +129,9 @@ Without these, the launch is dishonest. With them, the site is real.
 
 ## 7. Honest read on the prototype
 
-It's a competent v1. The editorial aesthetic works for the category. The structure mirrors the Malbec Transfer pattern that the client pointed at. The taxi-as-differentiator is integrated without being kitsch. The image rhythm (hero collage → service cards → about collage → experiences grid → gallery band → reviews → FAQ → contact) gives the page real cadence.
+It's a competent v1. The editorial aesthetic works for the category. The structure mirrors the Malbec Transfer pattern that the client pointed at. The authorized-car/private-driver differentiator is integrated without being kitsch. The image rhythm (hero collage → service cards → about collage → experiences grid → gallery band → reviews → FAQ → contact) gives the page real cadence.
 
-**What it doesn't do:** it doesn't have a memorable single moment. There's no one element a visitor will remember and tell a friend about. If you (next Claude) want to take a swing, that's the place — find the unforgettable detail. Maybe it's the taxi roof sign as a navigation anchor. Maybe it's a hand-drawn map of a typical day. Maybe it's the license plate displayed proudly as a trust signal in a way no other operator can. Maybe it's something I haven't thought of.
+**What it doesn't do:** it doesn't have a memorable single moment. There's no one element a visitor will remember and tell a friend about. If you (next Claude) want to take a swing, that's the place — find the unforgettable detail. Maybe it's a hand-drawn map of a typical day. Maybe it's the license plate displayed proudly as a trust signal in a way no other operator can. Maybe it's something I haven't thought of.
 
 Also: the multilingual structure is now in place. For a business that lives or dies by Google rankings on tourist queries, the next SEO step is not more languages but focused landing pages for the highest-intent routes.
 
