@@ -105,7 +105,7 @@ export const content = {
         eyebrow: 'Full day',
         title: 'Luján & Maipú',
         duration: 'Up to 8 hours',
-        price: 150,
+        price: 113,
         seats: '1-4 guests',
         blurb:
           'Three classic wineries within a 40-minute drive of the city. Best for a first-time Mendoza day.',
@@ -118,7 +118,7 @@ export const content = {
         ],
         excludes: [
           'Winery tasting fees and lunch',
-          'Each extra hour: USD 19',
+          'Each extra hour: USD 14',
         ],
       },
       {
@@ -126,7 +126,7 @@ export const content = {
         eyebrow: 'Full day',
         title: 'Valle de Uco',
         duration: 'Up to 10 hours',
-        price: 195,
+        price: 146,
         seats: '1-4 guests',
         blurb:
           'The high-altitude valley everyone comes for — about 1.5h each way, world-class wineries, panoramic views.',
@@ -139,7 +139,7 @@ export const content = {
         ],
         excludes: [
           'Winery tasting fees and lunch',
-          'Each extra hour: USD 19',
+          'Each extra hour: USD 14',
         ],
       },
       {
@@ -147,7 +147,7 @@ export const content = {
         eyebrow: 'Flexible',
         title: 'By the hour',
         duration: 'Minimum 2 hours',
-        price: 24,
+        price: 18,
         priceSuffix: '/hr',
         seats: '1-4 guests',
         blurb:
@@ -165,7 +165,7 @@ export const content = {
         eyebrow: 'Transfer',
         title: 'Airport transfer (MDZ)',
         duration: 'Direct',
-        price: 30,
+        price: 23,
         seats: '1-4 guests',
         blurb:
           'Meet & greet at arrivals, luggage help, direct to your accommodation. Flat rate, day or night.',
@@ -518,7 +518,7 @@ export const content = {
         eyebrow: 'Día completo',
         title: 'Luján y Maipú',
         duration: 'Hasta 8 horas',
-        price: 150,
+        price: 113,
         seats: '1-4 pasajeros',
         blurb:
           'Tres bodegas clásicas a menos de 40 minutos de la ciudad. Ideal para un primer día en Mendoza.',
@@ -531,7 +531,7 @@ export const content = {
         ],
         excludes: [
           'Degustaciones y almuerzo',
-          'Cada hora extra: USD 19',
+          'Cada hora extra: USD 14',
         ],
       },
       {
@@ -539,7 +539,7 @@ export const content = {
         eyebrow: 'Día completo',
         title: 'Valle de Uco',
         duration: 'Hasta 10 horas',
-        price: 195,
+        price: 146,
         seats: '1-4 pasajeros',
         blurb:
           'El valle de altura que todos quieren conocer: cerca de 1,5 h por tramo, bodegas de nivel mundial y vistas panorámicas.',
@@ -552,7 +552,7 @@ export const content = {
         ],
         excludes: [
           'Degustaciones y almuerzo',
-          'Cada hora extra: USD 19',
+          'Cada hora extra: USD 14',
         ],
       },
       {
@@ -560,7 +560,7 @@ export const content = {
         eyebrow: 'Flexible',
         title: 'Por hora',
         duration: 'Mínimo 2 horas',
-        price: 24,
+        price: 18,
         priceSuffix: '/hora',
         seats: '1-4 pasajeros',
         blurb:
@@ -578,7 +578,7 @@ export const content = {
         eyebrow: 'Traslado',
         title: 'Traslado aeropuerto (MDZ)',
         duration: 'Directo',
-        price: 30,
+        price: 23,
         seats: '1-4 pasajeros',
         blurb:
           'Recepción en arribos, ayuda con equipaje y traslado directo a tu alojamiento. Tarifa fija, de día o de noche.',
@@ -931,7 +931,7 @@ export const content = {
         eyebrow: 'Dia inteiro',
         title: 'Luján e Maipú',
         duration: 'Até 8 horas',
-        price: 150,
+        price: 113,
         seats: '1-4 passageiros',
         blurb:
           'Três vinícolas clássicas a menos de 40 minutos da cidade. Ideal para um primeiro dia em Mendoza.',
@@ -944,7 +944,7 @@ export const content = {
         ],
         excludes: [
           'Degustações e almoço',
-          'Cada hora extra: USD 19',
+          'Cada hora extra: USD 14',
         ],
       },
       {
@@ -952,7 +952,7 @@ export const content = {
         eyebrow: 'Dia inteiro',
         title: 'Valle de Uco',
         duration: 'Até 10 horas',
-        price: 195,
+        price: 146,
         seats: '1-4 passageiros',
         blurb:
           'O vale de altitude que todo mundo quer conhecer: cerca de 1,5 h por trecho, vinícolas de nível mundial e vistas panorâmicas.',
@@ -965,7 +965,7 @@ export const content = {
         ],
         excludes: [
           'Degustações e almoço',
-          'Cada hora extra: USD 19',
+          'Cada hora extra: USD 14',
         ],
       },
       {
@@ -973,7 +973,7 @@ export const content = {
         eyebrow: 'Flexível',
         title: 'Por hora',
         duration: 'Mínimo 2 horas',
-        price: 24,
+        price: 18,
         priceSuffix: '/h',
         seats: '1-4 passageiros',
         blurb:
@@ -991,7 +991,7 @@ export const content = {
         eyebrow: 'Transfer',
         title: 'Transfer aeroporto (MDZ)',
         duration: 'Direto',
-        price: 30,
+        price: 23,
         seats: '1-4 passageiros',
         blurb:
           'Recepção na chegada, ajuda com bagagem e traslado direto até sua hospedagem. Tarifa fixa, de dia ou de noite.',
