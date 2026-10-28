@@ -30,7 +30,7 @@ export const promotions: Promotion[] = [
   {
     id: 'january-2027',
     name: { en: 'January trips', es: 'Viajes de enero', pt: 'Viagens de janeiro' },
-    startDate: '2026-11-01',
+    startDate: '2026-10-28',
     endDate: '2026-11-30',
     percentOff: 20,
     serviceIds: 'all',

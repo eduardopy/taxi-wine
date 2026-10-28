@@ -26,12 +26,14 @@ test('promotion dates are inclusive, scoped to the selected service, and do not 
   assert.equal(discountedPrice(23, 15), 19.55);
 });
 
-test('January offer requires a November 2026 request and a January 2027 trip', () => {
+test('January offer applies from October 28 through November 2026 for January 2027 trips', () => {
   const january = promotions.find((item) => item.id === 'january-2027');
   assert.ok(january);
   assert.equal(january.percentOff, 20);
   assert.deepEqual(activePromotionsForService('airport', '2026-11-01', [january]), [january]);
-  assert.equal(promotionForService('airport', '2026-10-31', '2027-01-01', [january]), undefined);
+  assert.equal(promotionForService('airport', '2026-10-27', '2027-01-01', [january]), undefined);
+  assert.equal(promotionForService('airport', '2026-10-28', '2027-01-01', [january]), january);
+  assert.equal(promotionForService('airport', '2026-10-31', '2027-01-01', [january]), january);
   assert.equal(promotionForService('airport', '2026-11-01', '2027-01-01', [january]), january);
   assert.equal(promotionForService('', '2026-11-01', '2027-01-01', [january]), january);
   assert.equal(promotionForService('airport', '2026-11-30', '2027-01-31', [january]), january);

@@ -38,14 +38,6 @@ const t = getContent(locale);
             <span style="opacity: 0.85;">{contact.whatsappDisplay}</span>
           </a>
 
-          <a
-            href={`mailto:${contact.email}?subject=${encodeURIComponent(t.contactSection.emailSubject)}`}
-            class="btn btn-outline w-full justify-between"
-          >
-            <span>{t.contactSection.email}</span>
-            <span style="color: var(--color-mute);">{contact.email}</span>
-          </a>
-
           {contact.instagram && (
             <a
               href={`https://instagram.com/${contact.instagram}`}
