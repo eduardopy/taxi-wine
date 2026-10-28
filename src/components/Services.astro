@@ -1,5 +1,6 @@
 ---
 import { contact, getContent, withBase, type Locale } from '../site.config';
+import { promotions, validatePromotions } from '../promotions';
 
 interface Props {
   locale?: Locale;
@@ -7,9 +8,22 @@ interface Props {
 
 const { locale = 'en' } = Astro.props;
 const t = getContent(locale);
+validatePromotions(promotions);
 ---
 
-<section id="services" class="relative py-20 md:py-32">
+<section
+  id="services"
+  class="relative py-20 md:py-32"
+  data-promotions
+  data-locale={locale}
+  data-off-label={t.servicesSection.promotionOff}
+  data-until-label={t.servicesSection.promotionUntil}
+  data-promotion-label={t.contactSection.promotionLabel}
+  data-promotion-price-label={t.contactSection.promotionPriceLabel}
+  data-trip-dates-label={t.servicesSection.promotionTripDates}
+  data-whatsapp={contact.whatsapp}
+  data-whatsapp-interest={t.servicesSection.whatsappInterest}
+>
   <div class="container-x">
     <div class="grid grid-cols-12 gap-6 mb-16 md:mb-20">
       <div class="col-span-12 md:col-span-5">
@@ -26,11 +40,22 @@ const t = getContent(locale);
       </div>
     </div>
 
+    <div data-promotion-banner hidden class="mb-8 p-6 md:p-8" style="background: var(--color-wine); color: var(--color-cream);">
+      <p class="eyebrow mb-3" style="color: var(--color-cream);">{t.servicesSection.promotionHeading}</p>
+      <ul data-promotion-list class="space-y-2 text-lg"></ul>
+      <p class="text-sm mt-3" style="opacity: 0.85;">{t.servicesSection.promotionNote}</p>
+    </div>
+
     <div class="grid grid-cols-1 md:grid-cols-2 gap-px" style="background: var(--color-line);">
       {t.services.map((s, i) => (
         <article
           class="card group relative overflow-hidden"
           style="border: none; padding: 0;"
+          data-service-card
+          data-service-id={s.id}
+          data-service-name={s.title}
+          data-service-price={s.price}
+          data-service-suffix={'priceSuffix' in s ? s.priceSuffix : ''}
         >
           <div class="aspect-[16/9] w-full overflow-hidden">
             <img
@@ -50,14 +75,19 @@ const t = getContent(locale);
                 <span class="eyebrow" style="color: var(--color-mute);">{s.eyebrow}</span>
               </div>
               <div class="text-right shrink-0">
-                <span class="text-3xl md:text-4xl" style="font-family: var(--font-display);">
-                  ${s.price}
-                </span>
+                <p data-original-price hidden class="text-sm" style="color: var(--color-mute);">
+                  <span class="sr-only">{t.servicesSection.originalPrice}: </span><s>${s.price}</s>
+                </p>
+                <span data-current-price class="text-3xl md:text-4xl" style="font-family: var(--font-display);">${s.price}</span>
                 {'priceSuffix' in s && s.priceSuffix && (
                   <span style="color: var(--color-mute); font-size: 0.95rem;">
                     {s.priceSuffix}
                   </span>
                 )}
+                <div data-conditional-price hidden class="mt-1 max-w-40 ml-auto" style="color: var(--color-wine);">
+                  <p data-conditional-price-value class="text-xl font-medium"></p>
+                  <p class="text-xs">{t.contactSection.promotionPriceLabel} · {t.servicesSection.promotionEligibleDates}</p>
+                </div>
               </div>
             </div>
 
@@ -66,6 +96,7 @@ const t = getContent(locale);
             <p class="mb-2 text-sm" style="color: var(--color-mute);">
               {s.duration} · {s.seats}
             </p>
+            <p data-service-offer hidden class="mb-3 text-sm font-medium" style="color: var(--color-wine);"></p>
 
             <p class="mb-6" style="color: var(--color-ink);">{s.blurb}</p>
 
@@ -98,6 +129,7 @@ const t = getContent(locale);
                   `${t.servicesSection.whatsappInterest} ${s.title}.`
                 )}`}
                 class="btn btn-primary mt-7 text-sm max-w-full whitespace-normal"
+                data-service-whatsapp
                 target="_blank"
                 rel="noopener noreferrer"
               >
