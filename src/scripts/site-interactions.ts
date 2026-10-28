@@ -43,8 +43,6 @@ function updatePromotions() {
       const price = Number(card.dataset.servicePrice);
       const suffix = card.dataset.serviceSuffix ?? '';
       const availableOffers = activePromotionsForService(id, today);
-      // Only show a reduced headline price when it applies to every trip date.
-      const offer = promotionForService(id, today);
       const featuredOffer = availableOffers.reduce<Promotion | undefined>(
         (best, current) => !best || current.percentOff > best.percentOff ? current : best, undefined,
       );
@@ -54,17 +52,10 @@ function updatePromotions() {
       const offerText = card.querySelector<HTMLElement>('[data-service-offer]');
       const link = card.querySelector<HTMLAnchorElement>('[data-service-whatsapp]');
 
-      if (currentPrice) currentPrice.textContent = `$${formatPrice(offer ? discountedPrice(price, offer.percentOff) : price)}`;
-      if (originalPrice) originalPrice.hidden = !offer;
+      if (currentPrice) currentPrice.textContent = `$${formatPrice(featuredOffer ? discountedPrice(price, featuredOffer.percentOff) : price)}`;
+      if (originalPrice) originalPrice.hidden = !featuredOffer;
       if (conditionalPrice) {
-        const restricted = availableOffers.filter((item) => item.travelStartDate).reduce<Promotion | undefined>(
-          (best, item) => !best || item.percentOff > best.percentOff ? item : best, undefined,
-        );
-        const conditionalValue = conditionalPrice.querySelector<HTMLElement>('[data-conditional-price-value]');
-        conditionalPrice.hidden = !restricted;
-        if (conditionalValue) conditionalValue.textContent = restricted
-          ? `USD ${formatPrice(discountedPrice(price, restricted.percentOff))}${suffix}`
-          : '';
+        conditionalPrice.hidden = !featuredOffer?.travelStartDate;
       }
       if (offerText) {
         offerText.hidden = availableOffers.length === 0;

@@ -84,10 +84,9 @@ validatePromotions(promotions);
                     {s.priceSuffix}
                   </span>
                 )}
-                <div data-conditional-price hidden class="mt-1 max-w-40 ml-auto" style="color: var(--color-wine);">
-                  <p data-conditional-price-value class="text-xl font-medium"></p>
-                  <p class="text-xs">{t.contactSection.promotionPriceLabel} · {t.servicesSection.promotionEligibleDates}</p>
-                </div>
+                <p data-conditional-price hidden class="mt-1 text-xs font-medium" style="color: var(--color-wine);">
+                  {t.servicesSection.promotionEligibleDates}
+                </p>
               </div>
             </div>
 
