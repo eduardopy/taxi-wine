@@ -46,8 +46,9 @@ works on both the Netlify site and the GitHub Pages preview.
 
 Edit the `promotions` list in [`src/promotions.ts`](src/promotions.ts), then
 commit the change to `main` to trigger a deployment. There is no separate
-promotion dashboard. A commented example is included in that file. For
-example, this gives 10% off two services for requests made in September 2027:
+promotion dashboard. The current configuration offers 20% off January 2027
+trips requested in November 2026. For example, this gives 10% off two services
+for October trips requested in September 2027:
 
 ```ts
 export const promotions: Promotion[] = [
@@ -58,13 +59,16 @@ export const promotions: Promotion[] = [
     endDate: '2027-09-30',
     percentOff: 10,
     serviceIds: ['lujan-maipu', 'uco-valley'],
+    travelStartDate: '2027-10-01',
+    travelEndDate: '2027-10-31',
   },
 ];
 ```
 
-- Dates are inclusive and use Mendoza's calendar date. They refer to when the
-  customer makes the request, not the date of travel. The offer appears and
-  disappears automatically without another deployment.
+- `startDate` and `endDate` are the request period in Mendoza time; the offer
+  appears and disappears automatically without another deployment. Optional
+  `travelStartDate` and `travelEndDate` restrict the trip dates. All dates are
+  inclusive. Leave out both travel dates to cover trips on any date.
 - Use `serviceIds: 'all'` for every service, or select from `lujan-maipu`,
   `uco-valley`, `hourly`, and `airport`. The percentage applies to the listed
   base price or hourly rate, not extra hours, tastings, or lunch.
@@ -72,10 +76,11 @@ export const promotions: Promotion[] = [
   rejects invalid dates, percentages, or service IDs. When offers overlap, the
   greatest percentage applies per service; offers are not combined. Equal
   percentages use the first listed offer.
-- The site shows an offer banner and reduced service prices, and includes the
-  offer in relevant WhatsApp messages. Requests still need confirmation by the
-  driver. The display uses the visitor's device clock; check the received time
-  and terms when confirming an offer.
+- The site shows an offer banner and the discounted prices with their terms.
+  The booking form checks the selected trip date before including an offer in
+  the WhatsApp message. Requests still need confirmation by the driver. The
+  display uses the visitor's device clock; check the received time and terms
+  when confirming an offer.
 
 Leave the list empty to run no promotions. Editing this file and deploying is
 required to add or change an offer; scheduled start and end dates then take

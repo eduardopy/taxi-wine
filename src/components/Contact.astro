@@ -77,6 +77,9 @@ const t = getContent(locale);
           data-promotion-price-label={t.contactSection.promotionPriceLabel}
           data-until-label={t.contactSection.promotionUntil}
           data-off-label={t.servicesSection.promotionOff}
+          data-trip-dates-label={t.servicesSection.promotionTripDates}
+          data-choose-date={t.contactSection.promotionChooseDate}
+          data-not-eligible={t.contactSection.promotionNotEligible}
         >
           <p class="eyebrow mb-6">{t.contactSection.bookingRequest}</p>
 
@@ -126,12 +129,12 @@ const t = getContent(locale);
             <label class="block">
               <span class="block text-sm mb-1.5" style="color: var(--color-mute);">{t.contactSection.datesLabel}</span>
               <input
-                type="text"
+                type="date"
                 name="dates"
-                placeholder={t.contactSection.datesPlaceholder}
                 class="w-full px-4 py-3 bg-transparent border focus:outline-none focus:ring-1 transition"
                 style="border-color: var(--color-line); color: var(--color-ink);"
               />
+              <span class="block text-xs mt-1.5" style="color: var(--color-mute);">{t.contactSection.datesHelp}</span>
             </label>
 
             <label class="block">

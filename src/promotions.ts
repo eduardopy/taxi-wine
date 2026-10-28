@@ -1,6 +1,5 @@
 /**
- * Offers are based on the date a customer makes their request in Mendoza.
- * Both dates are inclusive. Leave this list empty when there are no offers.
+ * Request dates use Mendoza time. Both request and optional trip dates are inclusive.
  *
  * Example:
  * {
@@ -10,6 +9,8 @@
  *   endDate: '2027-09-30',
  *   percentOff: 10,
  *   serviceIds: ['lujan-maipu', 'uco-valley'], // or 'all'
+ *   travelStartDate: '2027-10-01', // omit both travel dates for any trip date
+ *   travelEndDate: '2027-10-31',
  * },
  */
 
@@ -21,9 +22,22 @@ export type Promotion = {
   endDate: string;
   percentOff: number;
   serviceIds: ServiceId[] | 'all';
+  travelStartDate?: string;
+  travelEndDate?: string;
 };
 
-export const promotions: Promotion[] = [];
+export const promotions: Promotion[] = [
+  {
+    id: 'january-2027',
+    name: { en: 'January trips', es: 'Viajes de enero', pt: 'Viagens de janeiro' },
+    startDate: '2026-11-01',
+    endDate: '2026-11-30',
+    percentOff: 20,
+    serviceIds: 'all',
+    travelStartDate: '2027-01-01',
+    travelEndDate: '2027-01-31',
+  },
+];
 
 const serviceIds: ServiceId[] = ['lujan-maipu', 'uco-valley', 'hourly', 'airport'];
 
@@ -45,6 +59,11 @@ export function validatePromotions(offers: Promotion[]): void {
     if (!isValidDate(offer.startDate) || !isValidDate(offer.endDate) || offer.startDate > offer.endDate) {
       throw new Error(`Promotion ${offer.id} needs valid start and end dates in YYYY-MM-DD order.`);
     }
+    if ((offer.travelStartDate !== undefined || offer.travelEndDate !== undefined) &&
+      (!offer.travelStartDate || !offer.travelEndDate || !isValidDate(offer.travelStartDate) ||
+        !isValidDate(offer.travelEndDate) || offer.travelStartDate > offer.travelEndDate)) {
+      throw new Error(`Promotion ${offer.id} needs both valid trip dates in YYYY-MM-DD order.`);
+    }
     if (!Number.isFinite(offer.percentOff) || offer.percentOff <= 0 || offer.percentOff > 100) {
       throw new Error(`Promotion ${offer.id} needs a percentage greater than 0 and no more than 100.`);
     }
@@ -62,12 +81,17 @@ export function mendozaDate(now = new Date()): string {
   return `${part('year')}-${part('month')}-${part('day')}`;
 }
 
-/** When offers overlap, use the largest discount; equal discounts keep the first listed offer. */
-export function promotionForService(serviceId: string, date: string, offers = promotions): Promotion | undefined {
-  return offers.reduce<Promotion | undefined>((best, offer) => {
-    const eligible = offer.startDate <= date && date <= offer.endDate &&
-      (offer.serviceIds === 'all' || offer.serviceIds.includes(serviceId as ServiceId));
-    return eligible && (!best || offer.percentOff > best.percentOff) ? offer : best;
+export function activePromotionsForService(serviceId: string, requestDate: string, offers = promotions): Promotion[] {
+  return offers.filter((offer) => offer.startDate <= requestDate && requestDate <= offer.endDate &&
+    (offer.serviceIds === 'all' || offer.serviceIds.includes(serviceId as ServiceId)));
+}
+
+/** Pick the largest eligible offer; equal discounts keep the first listed offer. */
+export function promotionForService(serviceId: string, requestDate: string, travelDate = '', offers = promotions): Promotion | undefined {
+  return activePromotionsForService(serviceId, requestDate, offers).reduce<Promotion | undefined>((best, offer) => {
+    const eligibleTrip = !offer.travelStartDate || (isValidDate(travelDate) &&
+      travelDate >= offer.travelStartDate && travelDate <= offer.travelEndDate!);
+    return eligibleTrip && (!best || offer.percentOff > best.percentOff) ? offer : best;
   }, undefined);
 }
 

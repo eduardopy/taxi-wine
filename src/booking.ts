@@ -4,12 +4,13 @@ export type Language = 'en' | 'es' | 'pt';
 type OfferDetails = {
   offer: Promotion;
   locale: Language;
-  price: number;
+  price?: number;
   suffix: string;
   offerLabel: string;
   priceLabel: string;
   untilLabel: string;
   offLabel: string;
+  tripDatesLabel: string;
 };
 
 export function formatOfferDate(date: string, locale: Language): string {
@@ -20,10 +21,19 @@ export function formatOfferDate(date: string, locale: Language): string {
 }
 
 export function offerDescription(details: OfferDetails): string {
-  const { offer, locale, price, suffix, offerLabel, priceLabel, untilLabel, offLabel } = details;
-  return `${offerLabel}: ${offer.name[locale]} — ${offer.percentOff}% ${offLabel}\n` +
-    `${priceLabel}: USD ${formatPrice(discountedPrice(price, offer.percentOff))}${suffix}\n` +
-    `${untilLabel}: ${formatOfferDate(offer.endDate, locale)}`;
+  const { offer, locale, price, suffix, offerLabel, priceLabel, untilLabel, offLabel, tripDatesLabel } = details;
+  return [
+    `${offerLabel}: ${offer.name[locale]} — ${offer.percentOff}% ${offLabel}`,
+    price === undefined ? '' : `${priceLabel}: USD ${formatPrice(discountedPrice(price, offer.percentOff))}${suffix}`,
+    offerTripDates(offer, locale, tripDatesLabel),
+    `${untilLabel}: ${formatOfferDate(offer.endDate, locale)}`,
+  ].filter(Boolean).join('\n');
+}
+
+export function offerTripDates(offer: Promotion, locale: Language, label: string): string {
+  return offer.travelStartDate && offer.travelEndDate
+    ? `${label}: ${formatOfferDate(offer.travelStartDate, locale)} – ${formatOfferDate(offer.travelEndDate, locale)}`
+    : '';
 }
 
 export function bookingMessage(intro: string, fields: Array<[string, string]>, offer?: OfferDetails): string {
