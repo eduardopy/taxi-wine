@@ -27,7 +27,7 @@ npm test            # check booking and promotion rules
 Open it and edit:
 
 - `site` — brand name, driver name, domain, languages
-- `contact` — WhatsApp number, email, Instagram handle
+- `contact` — WhatsApp number and Instagram handle
 - `localeMeta` — URL paths and labels for English, Spanish, Portuguese
 - `content.en`, `content.es`, `content.pt` — all translated page copy, services, routes, FAQs, trust cards
 
@@ -47,7 +47,7 @@ works on both the Netlify site and the GitHub Pages preview.
 Edit the `promotions` list in [`src/promotions.ts`](src/promotions.ts), then
 commit the change to `main` to trigger a deployment. There is no separate
 promotion dashboard. The current configuration offers 20% off January 2027
-trips requested in November 2026. For example, this gives 10% off two services
+trips requested from October 28 through November 30, 2026. For example, this gives 10% off two services
 for October trips requested in September 2027:
 
 ```ts
@@ -141,18 +141,15 @@ GitHub Pages is also configured as a secondary preview. Its workflow passes `AST
 
 ## What still needs your attention
 
-Before launching, confirm the remaining business details:
+Business details still to confirm:
 
-- [ ] Confirm driver name spelling (`site.driverName` in `site.config.ts`)
-- [ ] Confirm WhatsApp number (`contact.whatsapp` is currently `5492612517146`)
-- [ ] Real email
-- [ ] Confirm Instagram handle (or remove the line)
-- [ ] Confirm prices (`$113`, `$146`, `$18/hr`, `$23`, extra hour `USD 14`)
-- [ ] Real TripAdvisor / Google reviews, then replace the current trust cards
-- [ ] Personalize the bio paragraphs in all three `content.*.about` entries
+- [ ] Confirm prices (`$113`, `$146`, `$18/hr`, `$23`, extra hour `USD 14`); these are retained at the owner's request but were not confirmed in the original handoff.
+- [ ] Confirm experience itineraries and availability, which were inferred from Instagram posts in the original handoff.
+- [ ] Confirm service and payment details, including response times, language fluency, and accepted payment methods.
+- [ ] Add real TripAdvisor / Google reviews when available; the site currently shows trust cards, not reviews.
 - [ ] Keep `ASTRO_SITE` values in sync if the production or preview domains change
 
-Once those are in, you're ready to deploy.
+The driver name, Instagram handle, and WhatsApp number have been confirmed.
 
 ---
 

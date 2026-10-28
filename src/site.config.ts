@@ -7,11 +7,10 @@
 
 export const site = {
   brand: 'Taxi Wine',
-  domain: 'taxiwine.com',                   // TODO real domain
-  driverName: 'Matías Licata',              // TODO confirm spelling/preferred form
+  domain: 'taxiwine.com',
+  driverName: 'Matías Licata',
   baseLocation: 'Mendoza, Argentina',
   languages: ['English', 'Spanish', 'Portuguese'],
-  yearsDriving: 8,                          // TODO confirm real number
   vehicle: 'Chevrolet Onix — auto habilitado para turismo',
   vehiclePlate: 'AH 207 UI',
 };
@@ -19,7 +18,6 @@ export const site = {
 export const contact = {
   whatsapp: '5492612517146',                // WhatsApp number, no + or spaces
   whatsappDisplay: '+54 9 2612 51-7146',
-  email: 'hello@taxiwine.com',              // TODO
   instagram: 'taxi.wine',
 };
 
@@ -100,7 +98,7 @@ export const content = {
       whatsappInterest: "Hi! I'm interested in:",
       promotionHeading: 'Current offers',
       promotionOff: 'off',
-      promotionUntil: 'Requests through',
+      promotionUntil: 'Available now through',
       promotionTripDates: 'Trip dates',
       promotionEligibleDates: 'eligible trip dates',
       promotionNote: 'Offers apply to requests sent by this date, Mendoza time. The final price is confirmed by WhatsApp.',
@@ -248,16 +246,16 @@ export const content = {
       headingBefore: "Hi, I'm",
       headingAfter: 'The whole company.',
       paragraphs: [
-        'I was born in Mendoza, and I spend my days driving visitors between the city, the vineyards, and the mountains. The job is part logistics, part local advice: which routes make sense, where to leave enough time for lunch, and when a long drive is actually worth it.',
+        'I drive visitors between Mendoza, the vineyards, and the mountains. I can help you plan a route with time for the places you want to visit.',
         "I drive a comfortable car that's officially authorized for tourism in Mendoza — properly registered, insured, and fairly priced. No grey-market tour van, no luxury-tour markup. You get the care and attention of a private driver, with paperwork that's fully in order.",
-        "Most days I drive a couple, occasionally a small group, sometimes a single traveler who doesn't want to be on a bus. There's no fleet, no dispatcher, no handing you off — when you book Taxi Wine, I'm the person who shows up.",
+        "Whether you're traveling on your own, as a couple, or with a small group, you can plan a private day around your interests.",
       ],
       facts: [
         { label: 'Languages', value: 'EN · ES · PT' },
         { label: 'Vehicle', value: 'Chevrolet Onix' },
         { label: 'Capacity', value: '4 + luggage' },
       ],
-      imageAlt: 'Matías with guests tasting wine in a Mendoza cellar',
+      imageAlt: 'Guests tasting wine in a Mendoza cellar',
       taxiImageAlt: 'The Taxi Wine vehicle parked at a Mendoza winery',
     },
     whyChoose: {
@@ -349,7 +347,7 @@ export const content = {
       {
         n: '01',
         title: 'Tell me your dates',
-        body: 'A short WhatsApp or email is enough. I reply the same day, usually within an hour.',
+        body: 'A short WhatsApp message is enough. I reply the same day, usually within an hour.',
       },
       {
         n: '02',
@@ -398,7 +396,7 @@ export const content = {
     faqs: [
       {
         q: 'How does booking work?',
-        a: "Send me a WhatsApp or email with your dates and what you're thinking. I'll reply the same day with availability, a suggested route, and a final price.",
+        a: "Send me a WhatsApp message with your dates and what you're thinking. I'll reply the same day with availability, a suggested route, and a final price.",
       },
       {
         q: 'Is the car licensed and insured?',
@@ -440,7 +438,6 @@ export const content = {
       intro:
         "A few sentences are enough — when you're arriving, how many of you, what kind of day you want. I reply the same day with a plan and a price.",
       whatsapp: 'WhatsApp',
-      email: 'Email',
       instagram: 'Instagram',
       bookingRequest: 'Booking request',
       nameLabel: 'Your name',
@@ -463,7 +460,6 @@ export const content = {
       promotionChooseDate: 'Choose a trip date to check this offer.',
       promotionNotEligible: 'The current offer does not apply to that trip date.',
       whatsappMessage: "Hi! I'd like to plan a wine day in Mendoza.",
-      emailSubject: 'Mendoza wine day inquiry',
     },
     footer: {
       siteLabel: 'Site',
@@ -529,7 +525,7 @@ export const content = {
       whatsappInterest: 'Hola, me interesa:',
       promotionHeading: 'Ofertas vigentes',
       promotionOff: 'de descuento',
-      promotionUntil: 'Solicitudes hasta el',
+      promotionUntil: 'Disponible desde ahora hasta el',
       promotionTripDates: 'Fechas del viaje',
       promotionEligibleDates: 'fechas de viaje elegibles',
       promotionNote: 'Ofertas válidas para solicitudes enviadas hasta esa fecha, hora de Mendoza. El precio final se confirma por WhatsApp.',
@@ -677,16 +673,16 @@ export const content = {
       headingBefore: 'Hola, soy',
       headingAfter: 'Toda la empresa.',
       paragraphs: [
-        'Nací en Mendoza y paso mis días llevando visitantes entre la ciudad, los viñedos y la montaña. El trabajo es parte logística, parte consejo local: qué rutas convienen, dónde dejar tiempo para almorzar y cuándo un viaje largo realmente vale la pena.',
+        'Llevo visitantes entre Mendoza, los viñedos y la montaña. Puedo ayudarte a planear una ruta con tiempo para los lugares que quieras visitar.',
         'Manejo un auto cómodo habilitado para turismo en Mendoza — registrado oficialmente, asegurado y con precios justos. Sin van turística informal ni sobreprecio de tour de lujo. Tenés el cuidado y la atención de un chofer privado, con todos los papeles en regla.',
-        'La mayoría de los días manejo una pareja, a veces un grupo chico, a veces una persona sola que no quiere subirse a un bus. No hay flota, ni central, ni cambio de chofer: cuando reservás Taxi Wine, soy yo quien llega.',
+        'Ya sea que viajes por tu cuenta, en pareja o con un grupo chico, podés planear un día privado según tus intereses.',
       ],
       facts: [
         { label: 'Idiomas', value: 'EN · ES · PT' },
         { label: 'Vehículo', value: 'Chevrolet Onix' },
         { label: 'Capacidad', value: '4 + equipaje' },
       ],
-      imageAlt: 'Matías con pasajeros degustando vino en una cava de Mendoza',
+      imageAlt: 'Visitantes degustando vino en una cava de Mendoza',
       taxiImageAlt: 'El vehículo de Taxi Wine estacionado en una bodega mendocina',
     },
     whyChoose: {
@@ -778,7 +774,7 @@ export const content = {
       {
         n: '01',
         title: 'Contame tus fechas',
-        body: 'Un WhatsApp o email corto alcanza. Respondo el mismo día, normalmente dentro de una hora.',
+        body: 'Un mensaje corto por WhatsApp alcanza. Respondo el mismo día, normalmente dentro de una hora.',
       },
       {
         n: '02',
@@ -827,7 +823,7 @@ export const content = {
     faqs: [
       {
         q: '¿Cómo funciona la reserva?',
-        a: 'Mandame un WhatsApp o email con tus fechas y la idea que tenés. Respondo el mismo día con disponibilidad, una ruta sugerida y precio final.',
+        a: 'Mandame un mensaje por WhatsApp con tus fechas y la idea que tenés. Respondo el mismo día con disponibilidad, una ruta sugerida y precio final.',
       },
       {
         q: '¿El auto está habilitado y asegurado?',
@@ -869,7 +865,6 @@ export const content = {
       intro:
         'Con unas pocas líneas alcanza: cuándo llegás, cuántos son y qué tipo de día quieren. Respondo el mismo día con un plan y precio.',
       whatsapp: 'WhatsApp',
-      email: 'Email',
       instagram: 'Instagram',
       bookingRequest: 'Solicitud de reserva',
       nameLabel: 'Tu nombre',
@@ -892,7 +887,6 @@ export const content = {
       promotionChooseDate: 'Elegí una fecha de viaje para comprobar esta oferta.',
       promotionNotEligible: 'La oferta vigente no aplica a esa fecha de viaje.',
       whatsappMessage: 'Hola, quiero planear un día de vino en Mendoza.',
-      emailSubject: 'Consulta por día de vino en Mendoza',
     },
     footer: {
       siteLabel: 'Sitio',
@@ -958,7 +952,7 @@ export const content = {
       whatsappInterest: 'Olá, tenho interesse em:',
       promotionHeading: 'Ofertas atuais',
       promotionOff: 'de desconto',
-      promotionUntil: 'Pedidos até',
+      promotionUntil: 'Disponível a partir de agora até',
       promotionTripDates: 'Datas da viagem',
       promotionEligibleDates: 'datas de viagem elegíveis',
       promotionNote: 'Ofertas válidas para pedidos enviados até essa data, no horário de Mendoza. O preço final é confirmado pelo WhatsApp.',
@@ -1106,16 +1100,16 @@ export const content = {
       headingBefore: 'Oi, eu sou',
       headingAfter: 'A empresa inteira.',
       paragraphs: [
-        'Nasci em Mendoza e passo meus dias levando visitantes entre a cidade, os vinhedos e a montanha. O trabalho é parte logística, parte conselho local: quais rotas fazem sentido, onde deixar tempo para almoçar e quando uma viagem longa realmente vale a pena.',
+        'Levo visitantes entre Mendoza, os vinhedos e a montanha. Posso ajudar a planejar uma rota com tempo para os lugares que você quer visitar.',
         'Dirijo um carro confortável habilitado para turismo em Mendoza — registrado oficialmente, segurado e com preço justo. Sem van turística informal e sem preço de tour de luxo. Você tem o cuidado e a atenção de um motorista particular, com toda a papelada em ordem.',
-        'Na maioria dos dias levo um casal, às vezes um grupo pequeno, às vezes uma pessoa sozinha que não quer entrar em um ônibus. Não há frota, central ou troca de motorista: quando você reserva a Taxi Wine, sou eu que apareço.',
+        'Seja viajando sozinho, em casal ou com um grupo pequeno, você pode planejar um dia privado de acordo com seus interesses.',
       ],
       facts: [
         { label: 'Idiomas', value: 'EN · ES · PT' },
         { label: 'Veículo', value: 'Chevrolet Onix' },
         { label: 'Capacidade', value: '4 + bagagem' },
       ],
-      imageAlt: 'Matías com visitantes degustando vinho em uma cave de Mendoza',
+      imageAlt: 'Visitantes degustando vinho em uma cave de Mendoza',
       taxiImageAlt: 'O veículo da Taxi Wine estacionado em uma vinícola de Mendoza',
     },
     whyChoose: {
@@ -1207,7 +1201,7 @@ export const content = {
       {
         n: '01',
         title: 'Conte suas datas',
-        body: 'Um WhatsApp ou email curto basta. Respondo no mesmo dia, normalmente dentro de uma hora.',
+        body: 'Uma mensagem curta pelo WhatsApp basta. Respondo no mesmo dia, normalmente dentro de uma hora.',
       },
       {
         n: '02',
@@ -1256,7 +1250,7 @@ export const content = {
     faqs: [
       {
         q: 'Como funciona a reserva?',
-        a: 'Envie um WhatsApp ou email com suas datas e o que você imagina. Respondo no mesmo dia com disponibilidade, uma rota sugerida e preço final.',
+        a: 'Envie uma mensagem pelo WhatsApp com suas datas e o que você imagina. Respondo no mesmo dia com disponibilidade, uma rota sugerida e preço final.',
       },
       {
         q: 'O carro é habilitado e segurado?',
@@ -1298,7 +1292,6 @@ export const content = {
       intro:
         'Poucas linhas bastam: quando você chega, quantas pessoas são e que tipo de dia querem. Respondo no mesmo dia com plano e preço.',
       whatsapp: 'WhatsApp',
-      email: 'Email',
       instagram: 'Instagram',
       bookingRequest: 'Pedido de reserva',
       nameLabel: 'Seu nome',
@@ -1321,7 +1314,6 @@ export const content = {
       promotionChooseDate: 'Escolha uma data de viagem para verificar esta oferta.',
       promotionNotEligible: 'A oferta atual não se aplica a essa data de viagem.',
       whatsappMessage: 'Olá, quero planejar um dia de vinho em Mendoza.',
-      emailSubject: 'Consulta sobre dia de vinho em Mendoza',
     },
     footer: {
       siteLabel: 'Site',

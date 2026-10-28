@@ -1,5 +1,9 @@
 # HANDOFF — Taxi Wine site
 
+> Historical prototype notes: see README and the current source for the live
+> booking flow and promotion. The WhatsApp number, driver name and Instagram
+> handle were confirmed in October 2026, and the placeholder email was removed.
+
 > **Read this first.** This is a prototype handed to you from a previous chat session. It works, but it's a starting point. **You are not obligated to build on top of it.** If a different stack, structure, or aesthetic would serve the client better, throw this away and start over. The notes below are about the *client and the problem*, not about the code.
 
 ---
