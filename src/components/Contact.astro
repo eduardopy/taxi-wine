@@ -62,10 +62,21 @@ const t = getContent(locale);
 
       <div class="col-span-12 md:col-span-7">
         <form
-          action={`mailto:${contact.email}`}
-          method="POST"
-          enctype="text/plain"
           class="card p-8 md:p-12"
+          data-booking-form
+          data-whatsapp={contact.whatsapp}
+          data-locale={locale}
+          data-intro={t.contactSection.formMessageIntro}
+          data-name-label={t.contactSection.nameLabel}
+          data-phone-label={t.contactSection.phoneLabel}
+          data-service-label={t.contactSection.serviceLabel}
+          data-dates-label={t.contactSection.datesLabel}
+          data-guests-label={t.contactSection.guestsLabel}
+          data-message-label={t.contactSection.messageLabel}
+          data-promotion-label={t.contactSection.promotionLabel}
+          data-promotion-price-label={t.contactSection.promotionPriceLabel}
+          data-until-label={t.contactSection.promotionUntil}
+          data-off-label={t.servicesSection.promotionOff}
         >
           <p class="eyebrow mb-6">{t.contactSection.bookingRequest}</p>
 
@@ -91,6 +102,25 @@ const t = getContent(locale);
               />
             </label>
           </div>
+
+          <label class="block mb-5">
+            <span class="block text-sm mb-1.5" style="color: var(--color-mute);">{t.contactSection.serviceLabel}</span>
+            <select
+              name="service"
+              class="w-full px-4 py-3 bg-transparent border focus:outline-none focus:ring-1 transition"
+              style="border-color: var(--color-line); color: var(--color-ink);"
+            >
+              <option value="">{t.contactSection.servicePlaceholder}</option>
+              {t.services.map((service) => (
+                <option
+                  value={service.id}
+                  data-price={service.price}
+                  data-suffix={'priceSuffix' in service ? service.priceSuffix : ''}
+                >{service.title}</option>
+              ))}
+            </select>
+          </label>
+          <p data-booking-offer hidden class="mb-5 text-sm font-medium" style="color: var(--color-wine);" aria-live="polite"></p>
 
           <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5">
             <label class="block">
@@ -133,7 +163,7 @@ const t = getContent(locale);
             ></textarea>
           </label>
 
-          <button type="submit" class="btn btn-primary w-full justify-center">
+          <button type="submit" disabled class="btn btn-primary w-full justify-center disabled:opacity-50 disabled:cursor-not-allowed">
             {t.contactSection.submit}
             <span aria-hidden="true">→</span>
           </button>
@@ -142,6 +172,9 @@ const t = getContent(locale);
             {t.contactSection.formNote}
           </p>
         </form>
+        <noscript>
+          <p class="mt-4 text-sm" style="color: var(--color-mute);">{t.contactSection.noJavascript}</p>
+        </noscript>
       </div>
     </div>
   </div>
